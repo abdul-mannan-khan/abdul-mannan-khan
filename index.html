@@ -42,8 +42,8 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 .hero { padding: 64px 0 48px; position: relative; overflow: hidden; }
 .hero::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 620px; height: 620px; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%); pointer-events: none; }
-.hero .intro { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: center; position: relative; }
-.portrait { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 6px solid var(--surface);
+.hero .intro { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; position: relative; }
+.portrait { width: 280px; height: 350px; border-radius: 20px; object-fit: cover; border: 6px solid var(--surface);
   box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
 .eyebrow { color: var(--accent-2); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
 .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 6px 0 4px; letter-spacing: -.01em; }
@@ -57,11 +57,12 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 .btn.primary:hover { color: var(--on-accent); filter: brightness(1.08); }
 .btn svg { width: 17px; height: 17px; }
 
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);
   border-radius: 16px; overflow: hidden; margin-top: 40px; box-shadow: var(--shadow); }
 .stat { background: var(--surface); padding: 20px; text-align: center; }
 .stat b { display: block; font-family: Fraunces, serif; font-size: 2rem; color: var(--accent); line-height: 1.1; }
 .stat span { color: var(--muted); font-size: .85rem; }
+.note { color: var(--muted); font-size: .78rem; margin: 8px 0 0; text-align: right; }
 
 /* sections */
 section { padding: 56px 0; }
@@ -137,10 +138,11 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 @media (max-width: 760px) {
   .hero { padding-top: 40px; }
   .hero .intro { grid-template-columns: 1fr; gap: 24px; text-align: center; }
-  .portrait { width: 170px; height: 170px; margin: 0 auto; }
+  .portrait { width: 220px; height: 275px; margin: 0 auto; }
   .role { margin-left: auto; margin-right: auto; }
   .actions { justify-content: center; }
   .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat:first-child { grid-column: 1 / -1; }
   .brand { display: none; }
   .contact { padding: 28px 20px; }
   section { padding: 44px 0; }
@@ -161,7 +163,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 
 <header class="hero" id="top">
   <div class="wrap intro">
-    <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Dr. Abdul Manan Khan" width="240" height="240">
+    <img class="portrait" src="assets/portrait.jpg" alt="Dr. Abdul Manan Khan at the main entrance of Imperial College London" width="280" height="350">
     <div>
       <div class="eyebrow">Robotics · Control · Trustworthy AI</div>
       <h1>Dr. Abdul Manan Khan</h1>
@@ -177,11 +179,13 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
   </div>
   <div class="wrap">
     <div class="stats">
-      <div class="stat"><b>42</b><span>Publications</span></div>
-      <div class="stat"><b>26</b><span>Q1/Q2 journal papers</span></div>
-      <div class="stat"><b>720+</b><span>Citations</span></div>
-      <div class="stat"><b>15</b><span>h-index</span></div>
+      <div class="stat"><b>58</b><span>Publications</span></div>
+      <div class="stat"><b>39</b><span>Journal articles</span></div>
+      <div class="stat"><b>15</b><span>Conference papers</span></div>
+      <div class="stat"><b>784</b><span>Citations*</span></div>
+      <div class="stat"><b>16</b><span>h-index*</span></div>
     </div>
+    <p class="note">*Google Scholar, Oct 2026.</p>
   </div>
 </header>
 
@@ -251,13 +255,15 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
   <div class="toolbar">
     <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search by title, author, journal or year" aria-label="Search publications"></label>
-    <span class="count" id="count">32 journal papers · 8 conference papers</span>
+    <span class="count" id="count">58 publications: 39 journal · 15 conference · 2 book chapters · 2 preprints</span>
   </div>
   <h3 class="sub">Journal Publications</h3>
   <h4 class="year">2026</h4>
 <ol class="pubs">
 <li class="pub"><p class="title">XAI-guided optimizer distillation for real-time UAV relay positioning in terahertz 6G low-altitude ad hoc networks</p><p class="authors"><strong class="me">A. M. Khan</strong></p><p class="venue"><em>Ad Hoc Networks</em>, vol. 194, 104389, 2026.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.adhoc.2026.104389" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.adhoc.2026.104389</a></div></li>
 <li class="pub"><p class="title">Design of soft glove for stroke patient rehabilitation using pretrained SMA actuators</p><p class="authors">V. Vellaiyan, <strong class="me">A. M. Khan</strong>, V. Bijalwan, Y. Singh, B. Shin, Y. Kim</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 399, 117414, 2026.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2025.117414" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2025.117414</a></div></li>
+<li class="pub"><p class="title">EDL-HJAE: An ensemble deep learning framework for multimodal gait analysis and hip joint asymmetry evaluation</p><p class="authors">V. Bijalwan, S. Mishra, <strong class="me">A. M. Khan</strong>, H. Baek, V. Vellaiyan, Y. Kim</p><p class="venue"><em>Multimedia Tools and Applications</em>, vol. 85, 285, 2026.</p><div class="meta"><a class="doi" href="https://doi.org/10.1007/s11042-026-21486-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s11042-026-21486-1</a></div></li>
+<li class="pub"><p class="title">Interplay of precipitates and mechanical properties in AA7075 friction stir welded joints: experimental and machine learning insights</p><p class="authors">G. Roy, R. N. Hajra, S. H. Kim, S. Lee, P. Ung, <strong class="me">A. M. Khan</strong>, C. Yoon, J. Rho, J. H. Kim</p><p class="venue"><em>Materials Science and Engineering: A</em>, vol. 950, 149504, 2026.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.msea.2025.149504" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.msea.2025.149504</a></div></li>
 </ol>
 <h4 class="year">2025</h4>
 <ol class="pubs">
@@ -267,6 +273,9 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 <h4 class="year">2024</h4>
 <ol class="pubs">
 <li class="pub"><p class="title">Adaptive neural network controller for the rotating SMA actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, V. Bijalwan, B. Shin, Y. Kim</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 370, 115240, 2024.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2024.115240" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2024.115240</a></div></li>
+<li class="pub"><p class="title">Dynamic high-gain observer approach with sliding mode control for an arc-shaped shape memory alloy compliant actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, V. Bijalwan, H. Baek, B. Shin, Y. Kim</p><p class="venue"><em>Microsystem Technologies</em>, vol. 30, no. 12, pp. 1593–1600, 2024.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s00542-024-05646-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s00542-024-05646-7</a></div></li>
+<li class="pub"><p class="title">EEG-based motion intention detection for robotic rehabilitation: Evaluating classification and regression algorithms</p><p class="authors"><strong class="me">A. M. Khan</strong>, F. Khan, A. K. Dwivedi, V. B. Semwal, S. Martha, V. Bijalwan</p><p class="venue"><em>SN Computer Science</em>, vol. 5, no. 8, 1057, 2024.</p><div class="meta"><a class="doi" href="https://doi.org/10.1007/s42979-024-03419-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s42979-024-03419-7</a></div></li>
+<li class="pub"><p class="title">Interpretable human activity recognition with temporal convolutional networks and model-agnostic explanations</p><p class="authors">V. Bijalwan, <strong class="me">A. M. Khan</strong>, H. Baek, S. Jeon, Y. Kim</p><p class="venue"><em>IEEE Sensors Journal</em>, vol. 24, no. 17, pp. 27607–27617, 2024.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/JSEN.2024.3418496" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/JSEN.2024.3418496</a></div></li>
 </ol>
 <h4 class="year">2023</h4>
 <ol class="pubs">
@@ -291,6 +300,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 <ol class="pubs">
 <li class="pub"><p class="title">A spiral curve gait design for a modular snake robot moving on a pipe</p><p class="authors">S. Yaqub, A. Ali, M. Usman, K. M. Zuhaib, <strong class="me">A. M. Khan</strong>, B. An, H. Moon, J.-Y. Lee, C. Han</p><p class="venue"><em>International Journal of Control, Automation and Systems</em>, vol. 17, no. 10, pp. 2565–2573, 2019.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1007/s12555-019-0074-9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12555-019-0074-9</a></div></li>
 <li class="pub"><p class="title">An Extensive Approach to Features Detection and Description for 2-D Range Data Using Active B-splines</p><p class="authors">M. Usman, <strong class="me">A. M. Khan</strong>, A. Ali, S. Yaqub, K. M. Zuhaib, J.-Y. Lee, C.-S. Han</p><p class="venue"><em>IEEE Robotics and Automation Letters</em>, vol. 4, pp. 2934–2941, 2019.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/LRA.2019.2917383" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/LRA.2019.2917383</a></div></li>
+<li class="pub"><p class="title">Design and Optimization of Piezoelectric Transducer (PZT-5H Stack)</p><p class="authors">M. A. Sheeraz, Z. Butt, <strong class="me">A. M. Khan</strong>, S. Mehmood, A. Ali, M. Azeem, A. Nasir, T. Imtiaz</p><p class="venue"><em>Journal of Electronic Materials</em>, vol. 48, no. 10, pp. 6487–6502, 2019.</p><div class="meta"><a class="doi" href="https://doi.org/10.1007/s11664-019-07453-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s11664-019-07453-7</a></div></li>
 </ol>
 <h4 class="year">2018</h4>
 <ol class="pubs">
@@ -309,6 +319,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 <li class="pub"><p class="title">Muscle circumference sensor and model reference-based adaptive impedance control for upper limb assist exoskeleton robot</p><p class="authors"><strong class="me">A. M. Khan</strong>, M. Usman, A. Ali, F. Khan, S. Yaqub, C. Han</p><p class="venue"><em>Advanced Robotics</em>, vol. 30, no. 24, pp. 1515–1529, 2016.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1080/01691864.2016.1251335" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1080/01691864.2016.1251335</a></div></li>
 <li class="pub"><p class="title">Handling subject arm uncertainties for upper limb rehabilitation robot using robust sliding mode control</p><p class="authors">D. Yun, <strong class="me">A. M. Khan</strong>, R. Yan, Y. Ji, H. Jang, J. Iqbal, K. M. Zuhaib, J. Y. Ahn, J. Han, C. Han</p><p class="venue"><em>International Journal of Precision Engineering and Manufacturing</em>, vol. 17, no. 3, pp. 355–362, 2016.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12541-016-0044-6" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12541-016-0044-6</a></div></li>
 <li class="pub"><p class="title">Process Improvement for PET Bottles Manufacturing Company Using Six Sigma Approach</p><p class="authors">M. Ullah, <strong class="me">A. M. Khan</strong>, R. Nawaz, R. Akhtar</p><p class="venue"><em>Technical Journal, University of Engineering and Technology Taxila</em>, vol. 21, no. 11, 2016.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+<li class="pub"><p class="title">A novel method for 3D reconstruction: Division and merging of overlapping B-spline surfaces</p><p class="authors">R.-J. Yan, J. Wu, J. Y. Lee, <strong class="me">A. M. Khan</strong>, C.-S. Han, E. Kayacan, I.-M. Chen</p><p class="venue"><em>Computer-Aided Design</em>, vol. 81, pp. 14–23, 2016.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.cad.2016.08.007" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.cad.2016.08.007</a></div></li>
 </ol>
 <h4 class="year">2015</h4>
 <ol class="pubs">
@@ -326,9 +337,25 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 <li class="pub"><p class="title">Development of Efficient Tactile Sensing System for Humanoid Robotics</p><p class="authors">M. I. Khan, <strong class="me">A. M. Khan</strong>, M. K. Saleem, A. Nouman</p><p class="venue"><em>Applied Mechanics and Materials</em>, vol. 232, pp. 372–376, 2012.</p><div class="meta"><a class="doi" href="https://doi.org/10.4028/www.scientific.net/AMM.232.372" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.4028/www.scientific.net/AMM.232.372</a></div></li>
 </ol>
   <h3 class="sub">Conference Publications</h3>
-  <h4 class="year">2025</h4>
+  <h4 class="year">2026</h4>
 <ol class="pubs">
-<li class="pub"><p class="title">Context-Aware Autonomous Drone Navigation Using Large Language Models</p><p class="authors"><strong class="me">A. M. Khan</strong>, et al.</p><p class="venue"><em>Proceedings of the AAAI Symposium Series</em>, vol. 6, no. 1, pp. 102–107, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1609/aaaiss.v6i1.36039" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1609/aaaiss.v6i1.36039</a></div></li>
+<li class="pub"><p class="title">Stability-Guaranteed Reinforcement Learning for Model Predictive Control Gain Tuning with Transfer Learning in Multi-UAV Systems</p><p class="authors"><strong class="me">A. M. Khan</strong></p><p class="venue"><em>Transportation Research Procedia</em>, vol. 96, pp. 948–955, 2026.</p><div class="meta"><a class="doi" href="https://doi.org/10.1016/j.trpro.2026.04.077" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.trpro.2026.04.077</a></div></li>
+<li class="pub"><p class="title">Stable Adaptive Flight Control for Multi-Platform UAV Monitoring: Combining Reinforcement Learning with Lyapunov-Guaranteed Gain Tuning</p><p class="authors"><strong class="me">A. M. Khan</strong>, T. Tessema</p><p class="venue"><em>EGU General Assembly 2026 (abstract)</em>, EGU26-11383, 2026.</p><div class="meta"><a class="doi" href="https://doi.org/10.5194/egusphere-egu26-11383" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.5194/egusphere-egu26-11383</a></div></li>
+<li class="pub"><p class="title">An autonomous GPR-based scanning frame for reinforced concrete structures</p><p class="authors">R. Keihani, <strong class="me">A. M. Khan</strong>, L. Lantini, F. Tosti</p><p class="venue"><em>1st International Online Conference on Non-Destructive Testing</em>, 2026.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+</ol>
+<h4 class="year">2025</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">I-TREES: A Context-Aware Framework for Energy-Efficient Tree Health Monitoring in Forest Internet of Trees (IoTr) Networks</p><p class="authors">Z. Safdar, I. U. Rehman, H. Zia, N. Saeed, <strong class="me">A. M. Khan</strong>, M. M. Nasralla</p><p class="venue"><em>Proceedings of the AAAI Symposium Series</em>, vol. 6, no. 1, pp. 127–136, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1609/aaaiss.v6i1.36043" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1609/aaaiss.v6i1.36043</a></div></li>
+<li class="pub"><p class="title">Context-Aware Autonomous Drone Navigation Using Large Language Models</p><p class="authors"><strong class="me">A. M. Khan</strong>, I. U. Rehman, N. Saeed, D. Sobnath, F. Khan, M. A. K. Khattak</p><p class="venue"><em>Proceedings of the AAAI Symposium Series</em>, vol. 6, no. 1, pp. 102–107, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1609/aaaiss.v6i1.36039" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1609/aaaiss.v6i1.36039</a></div></li>
+</ol>
+<h4 class="year">2023</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Tensegrity-inspired Multi-axis Positioning SMA Actuator</p><p class="authors">H. Baek, <strong class="me">A. M. Khan</strong>, V. Bijalwan, S. Jeon, M. Jeong, Y. Kim</p><p class="venue"><em>IEEE International Symposium on Robotic and Sensors Environments (ROSE)</em>, pp. 1–5, 2023.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/ROSE60297.2023.10410742" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/ROSE60297.2023.10410742</a></div></li>
+<li class="pub"><p class="title">Shape Memory Alloy Based Soft Gripper</p><p class="authors">H. Baek, <strong class="me">A. M. Khan</strong>, V. Bijalwan, Y. Kim</p><p class="venue"><em>ASME Conference on Information Storage and Processing Systems (ISPS)</em>, V001T07A001, 2023.</p><div class="meta"><a class="doi" href="https://doi.org/10.1115/ISPS2023-109566" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1115/ISPS2023-109566</a></div></li>
+</ol>
+<h4 class="year">2021</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Modeling of novel arc shaped SMA actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, N. A. Mansour, Y. Kim, B. Shin, B. Ryu</p><p class="venue"><em>ASME Conference on Information Storage and Processing Systems (ISPS)</em>, V001T09A004, 2021.</p><div class="meta"><a class="doi" href="https://doi.org/10.1115/ISPS2021-65239" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1115/ISPS2021-65239</a></div></li>
 </ol>
 <h4 class="year">2016</h4>
 <ol class="pubs">
@@ -348,6 +375,21 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 <ol class="pubs">
 <li class="pub"><p class="title">Static &amp; dynamic sliding mode control of ball and beam system</p><p class="authors"><strong class="me">A. M. Khan</strong>, A. I. Bhatti, S. Ud Din, Q. Khan</p><p class="venue"><em>International Bhurban Conference on Applied Sciences and Technology (IBCAST), Islamabad</em>, pp. 32–36, 2012.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/IBCAST.2012.6177522" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/IBCAST.2012.6177522</a></div></li>
 <li class="pub"><p class="title">pH Sensing Materials for MEMS Sensors and Detection Techniques</p><p class="authors">M. I. Khan, <strong class="me">A. M. Khan</strong>, A. Nouman, M. I. Azhar, M. K. Saleem</p><p class="venue"><em>International Proceedings of Computer Science &amp; Information Technology</em>, vol. 32, p. 18, 2012.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+</ol>
+  <h3 class="sub">Book Chapters</h3>
+  <h4 class="year">2025</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">PER-HDL: Physiotherapy exercise recognition with RGB-D Kinect sensor and hybrid deep learning models</p><p class="authors">V. Bijalwan, H. Baek, <strong class="me">A. M. Khan</strong>, S. Mohamed, Y. Kim</p><p class="venue"><em>Rehabilitation Robotics and Healthcare Devices (Elsevier)</em>, pp. 153–174, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1016/B978-0-443-21505-6.00006-2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/B978-0-443-21505-6.00006-2</a></div></li>
+<li class="pub"><p class="title">Present and future of exoskeleton robots for rehabilitation: Actuation mechanisms review</p><p class="authors">H. Baek, V. Bijalwan, <strong class="me">A. M. Khan</strong>, M. Jeong, V. Vellaiyan, Y. Kim</p><p class="venue"><em>Rehabilitation Robotics and Healthcare Devices (Elsevier)</em>, pp. 13–26, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1016/B978-0-443-21505-6.00005-0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/B978-0-443-21505-6.00005-0</a></div></li>
+</ol>
+  <h3 class="sub">Preprints</h3>
+  <h4 class="year">2026</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Multi-Agent QoS-Aware Coordination for UAV Aerial Base Stations with Provable Performance Guarantees</p><p class="authors"><strong class="me">A. M. Khan</strong>, V. Vellaiyan, V. Bijalwan</p><p class="venue"><em>SSRN preprint</em>, 2026.</p><div class="meta"><a class="doi" href="https://doi.org/10.2139/ssrn.7560003" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.2139/ssrn.7560003</a></div></li>
+</ol>
+<h4 class="year">2025</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">SafeRL-Lite: A Lightweight, Explainable, and Constrained Reinforcement Learning Library</p><p class="authors">S. Mishra, P. T. Vi, S. Mishra, V. Bijalwan, V. B. Semwal, <strong class="me">A. M. Khan</strong></p><p class="venue"><em>arXiv preprint</em>, arXiv:2506.17297, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.48550/arXiv.2506.17297" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.48550/arXiv.2506.17297</a></div></li>
 </ol>
 </div></section>
 
