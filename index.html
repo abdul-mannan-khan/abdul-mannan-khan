@@ -1,251 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Abdul Manan Khan's Personal Webpage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #534caf;
-            color: rgb(213, 213, 164);
-            text-align: center;
-            padding: 1em 0;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #181818;
-        }
-        nav a {
-            color: white;
-            padding: 14px 20px;
-            text-decoration: none;
-            text-align: center;
-        }
-        nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-        main {
-            padding: 20px;
-        }
-        section {
-            margin-bottom: 20px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Abdul Manan Khan</title>
+<meta name="description" content="Dr. Abdul Manan Khan, Lecturer in Electronics and Robotics at the University of West London. Research in trustworthy AI, autonomous systems, UAVs, soft robotics and rehabilitation robotics.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0; --surface: #ffffff; --surface-2: #f0ede5; --ink: #16202e; --muted: #5b6575;
+  --line: #e3ded2; --accent: #1f5f8b; --accent-2: #c4793a; --accent-soft: #e4eef6; --badge: #e9f3ea; --badge-ink: #2d6a3a; --on-accent: #ffffff;
+  --shadow: 0 1px 2px rgba(22,32,46,.04), 0 8px 24px rgba(22,32,46,.06);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f141b; --surface: #161d27; --surface-2: #1c2531; --ink: #e8ecf1; --muted: #9aa5b4;
+    --line: #273242; --accent: #6fb1e0; --accent-2: #e5a06a; --accent-soft: #1b2b3b; --badge: #1d3324; --badge-ink: #8fd19e; --on-accent: #0f141b;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+h1, h2, h3 { font-family: Fraunces, Georgia, serif; line-height: 1.2; margin: 0; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* nav */
+nav.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 16px; }
+.brand { font-family: Fraunces, serif; font-weight: 600; font-size: 1.1rem; color: var(--ink); white-space: nowrap; }
+.links { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.links a { color: var(--muted); font-size: .9rem; font-weight: 500; padding: 6px 10px; border-radius: 8px; white-space: nowrap; }
+.links a:hover { color: var(--ink); background: var(--surface-2); text-decoration: none; }
+
+/* hero */
+.hero { padding: 64px 0 48px; position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 620px; height: 620px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%); pointer-events: none; }
+.hero .intro { display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: center; position: relative; }
+.portrait { width: 240px; height: 240px; border-radius: 50%; object-fit: cover; border: 6px solid var(--surface);
+  box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
+.eyebrow { color: var(--accent-2); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
+.hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 6px 0 4px; letter-spacing: -.01em; }
+.creds { color: var(--muted); font-weight: 500; }
+.role { font-size: 1.1rem; margin: 14px 0 22px; max-width: 46ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font-weight: 500; font-size: .92rem;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.btn:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn.primary:hover { color: var(--on-accent); filter: brightness(1.08); }
+.btn svg { width: 17px; height: 17px; }
+
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: 16px; overflow: hidden; margin-top: 40px; box-shadow: var(--shadow); }
+.stat { background: var(--surface); padding: 20px; text-align: center; }
+.stat b { display: block; font-family: Fraunces, serif; font-size: 2rem; color: var(--accent); line-height: 1.1; }
+.stat span { color: var(--muted); font-size: .85rem; }
+
+/* sections */
+section { padding: 56px 0; }
+section + section { border-top: 1px solid var(--line); }
+.head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+.head h2 { font-size: 2rem; }
+.head .num { font-family: Fraunces, serif; color: var(--accent-2); font-size: 1rem; }
+.lead p { max-width: 72ch; margin: 0 0 14px; }
+.lead p:first-child { font-size: 1.1rem; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; box-shadow: var(--shadow); }
+.card .ic { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 12px; }
+.card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.card p { margin: 0; color: var(--muted); font-size: .93rem; }
+
+/* timeline */
+.timeline { position: relative; margin: 0; padding: 0; list-style: none; }
+.timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.timeline > li { position: relative; padding: 0 0 32px 36px; }
+.timeline > li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--surface); border: 3px solid var(--accent); }
+.timeline > li.now::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+.when { font-size: .82rem; font-weight: 600; color: var(--accent-2); letter-spacing: .03em; text-transform: uppercase; }
+.timeline h3 { font-size: 1.2rem; margin: 2px 0; }
+.org { color: var(--muted); margin-bottom: 8px; }
+.timeline ul { margin: 0; padding-left: 18px; }
+.timeline ul li { margin-bottom: 4px; }
+.timeline p { margin: 0 0 6px; }
+
+.edu { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px; }
+.edu .card .when { display: block; margin-bottom: 6px; }
+
+/* publications */
+.toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.search { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; min-width: min(100%, 340px); box-shadow: var(--shadow); }
+.search input { border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; width: 100%; }
+.search svg { color: var(--muted); width: 18px; height: 18px; }
+.count { color: var(--muted); font-size: .9rem; }
+h3.sub { font-size: 1.4rem; margin: 36px 0 4px; }
+h4.year { font-family: Fraunces, serif; font-size: 1.05rem; color: var(--muted); margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 1px dashed var(--line); }
+ol.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.pub { background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px; padding: 16px 18px; transition: transform .15s, box-shadow .15s; }
+.pub:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.pub p { margin: 0; }
+.pub .title { font-weight: 600; line-height: 1.4; }
+.pub .authors { color: var(--muted); font-size: .9rem; margin-top: 4px; }
+.pub .authors .me { color: var(--ink); }
+.pub .venue { font-size: .9rem; margin-top: 2px; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.badge { font-size: .75rem; font-weight: 600; padding: 2px 9px; border-radius: 999px; background: var(--badge); color: var(--badge-ink); }
+.doi { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 500; padding: 3px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent); word-break: break-all; }
+.doi svg { width: 13px; height: 13px; }
+.doi:hover { text-decoration: none; filter: brightness(.95); }
+.doi.none { background: var(--surface-2); color: var(--muted); }
+.pub.hide, h4.year.hide { display: none; }
+
+.list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.list li { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+.list li .yr { font-family: Fraunces, serif; color: var(--accent-2); font-weight: 600; min-width: 48px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: .92rem; }
+
+.contact { background: linear-gradient(135deg, #1f5f8b, #10324d); color: #fff; border-radius: 20px; padding: 40px; text-align: center; }
+.contact h2 { color: #fff; font-size: 2rem; margin-bottom: 8px; }
+.contact p { opacity: .9; margin: 0 0 22px; }
+.contact .btn { background: #fff; color: #16202e; border-color: #fff; }
+.contact .btn:hover { color: #1f5f8b; }
+footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32px 0 40px; }
+
+@media (max-width: 760px) {
+  .hero { padding-top: 40px; }
+  .hero .intro { grid-template-columns: 1fr; gap: 24px; text-align: center; }
+  .portrait { width: 170px; height: 170px; margin: 0 auto; }
+  .role { margin-left: auto; margin-right: auto; }
+  .actions { justify-content: center; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .brand { display: none; }
+  .contact { padding: 28px 20px; }
+  section { padding: 44px 0; }
+}
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Welcome to Dr. Abdul Manan Khan's Personal Webpage</h1>
-    <p>PhD, FHEA, IEEE Senior Member</p>
-    <p>Lecturer in Electronics and Robotics, School of Computing and Engineering, University of West London, London, UK</p>
-    <p>Email: <a href="mailto:amk.617@outlook.com" style="color: rgb(213, 213, 164);">amk.617@outlook.com</a></p>
-    <p>GitHub: <a href="https://github.com/abdul-mannan-khan" target="_blank" rel="noopener noreferrer" style="color: rgb(213, 213, 164);">github.com/abdul-mannan-khan</a></p>
-    <p><a href="https://scholar.google.com/citations?user=akoaYEEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" style="color: rgb(213, 213, 164);">Google Scholar</a> | <a href="https://www.linkedin.com/in/abdul-manan-khan-711893a1/" target="_blank" rel="noopener noreferrer" style="color: rgb(213, 213, 164);">LinkedIn</a></p>
-</header>
-
-<nav aria-label="Main Navigation">
-    <a href="#about">About Me</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#contact">Contact</a>
+<nav class="top" aria-label="Main navigation">
+  <div class="wrap">
+    <a class="brand" href="#top">Dr. Abdul Manan Khan</a>
+    <div class="links">
+      <a href="#about">About</a><a href="#research">Research</a><a href="#experience">Experience</a>
+      <a href="#education">Education</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
+<header class="hero" id="top">
+  <div class="wrap intro">
+    <img class="portrait" src="assets/portrait.jpg" alt="Portrait of Dr. Abdul Manan Khan" width="240" height="240">
+    <div>
+      <div class="eyebrow">Robotics · Control · Trustworthy AI</div>
+      <h1>Dr. Abdul Manan Khan</h1>
+      <div class="creds">PhD, FHEA, IEEE Senior Member</div>
+      <p class="role">Lecturer in Electronics and Robotics, School of Computing and Engineering, <strong>University of West London</strong>, UK.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:amk.617@outlook.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=akoaYEEAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a>
+        <a class="btn" href="https://www.linkedin.com/in/abdul-manan-khan-711893a1/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a>
+        <a class="btn" href="https://github.com/abdul-mannan-khan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b>42</b><span>Publications</span></div>
+      <div class="stat"><b>26</b><span>Q1/Q2 journal papers</span></div>
+      <div class="stat"><b>720+</b><span>Citations</span></div>
+      <div class="stat"><b>15</b><span>h-index</span></div>
+    </div>
+  </div>
+</header>
+
 <main>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am a Lecturer in Electronics and Robotics at the University of West London, where I lead five modules across Levels 3 to 7 (Sensors and Actuators, Automation and Control, Applied Engineering Project, Essential Technology, and Control Systems Theory and Practice), act as a Personal Academic Tutor, and supervise a PhD candidate. I am a Fellow of the Higher Education Academy (FHEA) and hold a Postgraduate Certificate in Academic Practice (2025). Before joining UWL, I was a Research Associate in Trustworthy AI for Autonomous Systems at Imperial College London and a Senior Research Associate at the Bristol Robotics Laboratory, University of Bristol.</p>
-        <p>I possess extensive multinational teaching experience across Pakistan, South Korea, and the United Kingdom. In my role as an Assistant Professor at the University of Engineering and Technology in Taxila, Pakistan, I achieved notable success in research funding, securing the prestigious National Research Program for Universities grant – a unique accomplishment within the faculty. My efforts were instrumental in obtaining accreditation for the department's degree from the Washington Accord, enabling recognition in the USA for the first time. I played a crucial role as the main editor of the Self-Assessment Report and was pivotal in the development of the Continuous Quality Improvement loop. Additionally, I spearheaded the successful initiation of the M.Sc. Mechatronics Engineering program at UET Taxila's Chakwal Sub-Campus and managed the Final Year Projects for the B.Sc. Mechatronics Engineering program.</p>
-        <p>I have taught various subjects at the University of Engineering and Technology, Taxila, Pakistan, Hanyang University and Hanbat National University in South Korea, and Brunel University London, Imperial College London and the University of West London in the UK. Additionally, I have mentored students at these universities, as well as at the University of Bristol, UK, guiding them to produce high-quality research.</p>
-    </section>
+<section id="about"><div class="wrap">
+  <div class="head"><span class="num">01</span><h2>About</h2></div>
+  <div class="lead">
+    <p>I am a Lecturer in Electronics and Robotics at the University of West London, where I lead five modules across Levels 3 to 7, act as a Personal Academic Tutor, and supervise a PhD candidate. I am a Fellow of the Higher Education Academy and hold a Postgraduate Certificate in Academic Practice (2025). Before joining UWL, I was a Research Associate in Trustworthy AI for Autonomous Systems at Imperial College London and a Senior Research Associate at the Bristol Robotics Laboratory, University of Bristol.</p>
+    <p>I have more than twelve years of university teaching experience across Pakistan, South Korea and the United Kingdom. As an Assistant Professor at the University of Engineering and Technology Taxila, I secured the National Research Program for Universities grant, a first within the faculty, and was the main editor of the Self-Assessment Report that earned the department's degree Washington Accord recognition. I also launched the M.Sc. Mechatronics Engineering programme at the Chakwal sub-campus and managed final year projects for the B.Sc. programme.</p>
+    <p>I have taught at UET Taxila, Hanyang University and Hanbat National University in South Korea, and at Brunel University London, Imperial College London and the University of West London in the UK. I have also mentored students at these universities and at the University of Bristol. I hold UKRI Global Talent endorsement.</p>
+  </div>
+</div></section>
 
-    <section id="research">
-        <h2>Research Summary</h2>
-        <p>I have expertise in robotics, control and artificial intelligence, backed by a strong mathematical and programming background. I have authored 42 publications, including 26 Q1/Q2 journal articles, with over 720 citations and an h-index of 15. My recent work focuses on trustworthy and explainable AI for autonomous systems, deep reinforcement learning, large language models for drone navigation, and UAV networks for 6G. My earlier research spans human-robot interaction, rehabilitation and assistive exoskeletons, soft robotics and shape memory alloy (SMA) actuators, manipulators, mobile robots and drones. This work builds on my expertise in embedded systems, ROS and programming languages including C/C++ and Python. My academic qualifications include a Ph.D. in Mechanical Design Engineering. I hold UKRI Global Talent endorsement.</p>
-    </section>
+<section id="research"><div class="wrap">
+  <div class="head"><span class="num">02</span><h2>Research</h2></div>
+  <div class="lead"><p>My research combines robotics, control and artificial intelligence, backed by a strong mathematical and programming background in embedded systems, ROS, C/C++ and Python.</p></div>
+  <div class="cards">
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a3 3 0 0 1-1 5.2V18a4 4 0 0 1-6 3.46A4 4 0 0 1 6 18v-1.8A3 3 0 0 1 5 11v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z"/><path d="M12 2v20"/></svg></div><h3>Trustworthy &amp; Explainable AI</h3><p>Explainable reinforcement learning and causal learning for safe autonomous systems and 6G networks.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="5" r="3"/><circle cx="19" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><path d="M7.5 7.5 10 10m4 0 2.5-2.5M7.5 16.5 10 14m4 0 2.5 2.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></div><h3>UAVs &amp; Autonomous Systems</h3><p>LLM-based drone navigation, UAV relay positioning, multi-UAV tracking and deep RL for quadcopters.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c0-6 4-6 4-12a4 4 0 0 1 8 0c0 6 4 6 4 12"/><path d="M9 20v-4m6 4v-4"/></svg></div><h3>Soft Robotics &amp; SMA Actuators</h3><p>Modelling and neural-network control of shape memory alloy actuators, robotic hands and caterpillar robots.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21v-6l-2-4 3-5h4l2 4h4"/><circle cx="9" cy="3" r="1.5"/><path d="M13 11l3 3v7"/></svg></div><h3>Rehabilitation Robotics</h3><p>Upper-limb exoskeletons, rehabilitation gloves and human motion-intention estimation.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Nonlinear &amp; Adaptive Control</h3><p>Sliding mode, backstepping, impedance and adaptive control for robots and vehicles.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Engineering Education</h3><p>Sensors and actuators, automation and control, and project-based learning in robotics and AI.</p></div>
+  </div>
+</div></section>
 
-    <section id="publications">
-        <h2>Highlighted Journal Articles</h2>
-        <ul>
-            <li>A. M. Khan, "XAI-guided optimizer distillation for real-time UAV relay positioning in terahertz 6G low-altitude ad hoc networks," Ad Hoc Networks, vol. 169, p. 104389, 2025. (Q1, sole author)</li>
-            <li>M. Arana-Catania, A. Sonee, A. M. Khan, et al., "Explainable Reinforcement and Causal Learning for Improving Trust to 6G Stakeholders," IEEE Open Journal of the Communications Society, vol. 6, pp. 4101–4125, 2025. (Q1)</li>
-            <li>V. Vellaiyan, A. M. Khan, et al., "Design of soft glove for stroke patient rehabilitation using pretrained SMA actuator," Sensors and Actuators A: Physical, vol. 399, p. 116838, 2025. (Q1)</li>
-            <li>A. M. Khan, V. Bijalwan, B. Shin, and Y. Kim, "Adaptive neural network controller for the rotating SMA actuator," Sensors and Actuators A: Physical, vol. 370, p. 115240, 2024. (Q1)</li>
-            <li>H. Baek, A. M. Khan, V. Bijalwan, S. Jeon and Y. Kim, "Dexterous Robotic Hand Based on Rotational Shape Memory Alloy Actuator-Joints," IEEE Transactions on Medical Robotics and Bionics, vol. 5, no. 4, pp. 1082–1092, 2023. (Q1)</li>
-            <li>A. M. Khan, Y. Kim, B. Shin, M. H. Moghadam, N. A. Mansour, "Modeling and control analysis of an arc shaped SMA actuator using PID, sliding and integral sliding mode controllers," Sensors and Actuators A: Physical 340 (2022) 113523. (Q1)</li>
-        </ul>
-        <h2>Research Fundings/Awards/Endorsements</h2>
-        <ul>
-            <li>Excellence Startup Award, Korea, Certificate Name: OASIS-1,4, Issue Date: 16-07-2022 and 24-07-2022, Issued by: Korean Innovation Promotion Association</li>
-            <li>Korean Research Fellow Award (KRW 70 million/year) National Research Foundation, South Korea, Grant No. 2019H1D3A1A01102998</li>
-            <li>Ignite National Technology Fund, Ministry of Information and Telecom, Government of Pakistan via Letter No. Ignite/NGIRI/2018-19/03, September 2019</li>
-            <li>National Research Program for Universities (NRPU), Higher Education Commission of Pakistan via Letter No. 10674/Punjab/NRPU/R&D/HEC/2017</li>
-            <li>Ignite National Technology Fund, Ministry of Information and Telecom, Government of Pakistan via Letter No. Ignite/NGIRI/2017-18/03, Dated: 25th June 2018</li>
-            <li>Pakistan’s President Talent Scholarship, 1997</li>
-        </ul>
-    </section>
+<section id="experience"><div class="wrap">
+  <div class="head"><span class="num">03</span><h2>Experience</h2></div>
+  <ul class="timeline">
+    <li class="now"><div class="when">Sep 2024 – Present</div><h3>Lecturer in Electronics and Robotics</h3><div class="org">School of Computing and Engineering, University of West London, London, UK</div>
+      <ul><li>Module Leader for Sensors and Actuators and Automation and Control (Level 7), and Applied Engineering Project, Essential Technology and Control Systems Theory and Practice (Levels 3/6).</li>
+      <li>Teaching across the Robotics and AI, Electronic Engineering and Mechanical Engineering programmes, with practical sessions in Python and MATLAB.</li>
+      <li>Personal Academic Tutor, admissions interviewer and PhD supervisor; published 3 Q1 journal articles in 2024–2025.</li></ul></li>
+    <li><div class="when">May 2024 – Sep 2024</div><h3>Research Associate in Trustworthy AI for Autonomous Systems</h3><div class="org">Imperial College London, London, UK</div>
+      <ul><li>Developed explainable reinforcement learning and AI-driven control for autonomous systems, contributing to a Q1 IEEE journal paper.</li>
+      <li>Teaching Assistant for the Electronic Systems module (laboratory sessions, tutorials and embedded programming).</li></ul></li>
+    <li><div class="when">Feb 2023 – Apr 2024</div><h3>Senior Research Associate</h3><div class="org">Bristol Flight Lab / Bristol Robotics Laboratory, University of Bristol, UK</div>
+      <ul><li>Developed an explicit, explore, or escape (E4) reinforcement learning algorithm for the Crazyflie quadcopter.</li>
+      <li>Developed deep reinforcement learning (PPO, SAC), computer vision and sensor-fusion software for safety-critical autonomous systems.</li>
+      <li>Supervised 1 MSc dissertation and 1 final year project that led to a conference publication.</li>
+      <li>Presented at the Trustworthy Autonomous Systems Symposium 2023, Heriot-Watt University, Edinburgh.</li></ul></li>
+    <li><div class="when">Feb 2022 – Feb 2024</div><h3>Online Mentor (part-time)</h3><div class="org">Brunel University London, UK</div>
+      <p>Mentored courses in Modelling and Simulation and CAD Modelling with Interactive Pro: guiding students, leading seminars, and assessing assignments and final exams. Official Coursera Mentor for the Deep Learning Specialization (DeepLearning.AI) since 2018.</p></li>
+    <li><div class="when">Nov 2019 – Jun 2023</div><h3>Postdoctoral Fellow (Korean Research Fellow Award)</h3><div class="org">Intelligent Control and Robotic Systems Lab, Hanbat National University, Daejeon, South Korea</div>
+      <ul><li>Developed SMA models with up to 80% accuracy and adaptive neural-network controllers reaching 99.5% accuracy.</li>
+      <li>Developed an SMA-actuated robotic hand and caterpillar robot; implemented PPO on a legged robot and SAC on a mobile robot.</li>
+      <li>Won 2 Excellence Startup Awards for a ROS-based delivery robot and an agricultural drone.</li></ul></li>
+    <li><div class="when">Jan 2011 – Dec 2019</div><h3>Assistant Professor, Department of Mechatronics Engineering</h3><div class="org">University of Engineering and Technology Taxila, Sub-Campus Chakwal, Pakistan</div>
+      <ul><li>Taught Robotics, Control Systems, Machine Learning, Machine Vision, Microcontrollers and Embedded Systems, Digital Electronics, Mechatronic System Design and Programming.</li>
+      <li>Initiated the M.Sc. Mechatronics Engineering programme and led the Self-Assessment Report for international accreditation.</li>
+      <li>Secured the NRPU 2017 national research grant as sole PI; managed and mentored 8 faculty members.</li></ul></li>
+  </ul>
+</div></section>
 
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <h3>Lecturer in Electronics and Robotics – From September 2024 to date</h3>
-        <p>School of Computing and Engineering, University of West London, London, the UK</p>
-        <ul>
-            <li>Module Leader for Sensors and Actuators and Automation and Control (Level 7), and Applied Engineering Project, Essential Technology and Control Systems Theory and Practice (Levels 3/6).</li>
-            <li>Teaching across the Robotics and AI, Electronic Engineering and Mechanical Engineering programmes, with practical sessions in Python and MATLAB.</li>
-            <li>Personal Academic Tutor, admissions interviewer and PhD supervisor; published 3 Q1 journal articles in 2024–2025.</li>
-        </ul>
+<section id="education"><div class="wrap">
+  <div class="head"><span class="num">04</span><h2>Education</h2></div>
+  <div class="edu">
+    <div class="card"><span class="when">2016</span><h3>Ph.D. Mechanical Design Engineering</h3><p>Hanyang University, Seoul, South Korea</p></div>
+    <div class="card"><span class="when">2025</span><h3>PGCAP (Academic Practice)</h3><p>University of West London, UK. Leading to Fellowship of the Higher Education Academy</p></div>
+    <div class="card"><span class="when">2010</span><h3>M.Sc. Mechatronics &amp; Control Engineering</h3><p>University of Engineering &amp; Technology, Lahore, Pakistan</p></div>
+    <div class="card"><span class="when">2007</span><h3>B.Sc. Mechatronics &amp; Control Engineering</h3><p>University of Engineering &amp; Technology, Lahore, Pakistan</p></div>
+  </div>
+</div></section>
 
-        <h3>Research Associate in Trustworthy AI for Autonomous Systems – May 2024 to September 2024</h3>
-        <p>Imperial College London, London, the UK</p>
-        <ul>
-            <li>Developed explainable reinforcement learning and AI-driven control for autonomous systems, contributing to a Q1 IEEE journal paper.</li>
-            <li>Teaching Assistant for the Electronic Systems module (laboratory sessions, tutorials and embedded programming).</li>
-        </ul>
+<section id="publications"><div class="wrap">
+  <div class="head"><span class="num">05</span><h2>Publications</h2></div>
+  <div class="toolbar">
+    <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search by title, author, journal or year" aria-label="Search publications"></label>
+    <span class="count" id="count">32 journal papers · 8 conference papers</span>
+  </div>
+  <h3 class="sub">Journal Publications</h3>
+  <h4 class="year">2026</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">XAI-guided optimizer distillation for real-time UAV relay positioning in terahertz 6G low-altitude ad hoc networks</p><p class="authors"><strong class="me">A. M. Khan</strong></p><p class="venue"><em>Ad Hoc Networks</em>, vol. 194, 104389, 2026.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.adhoc.2026.104389" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.adhoc.2026.104389</a></div></li>
+<li class="pub"><p class="title">Design of soft glove for stroke patient rehabilitation using pretrained SMA actuators</p><p class="authors">V. Vellaiyan, <strong class="me">A. M. Khan</strong>, V. Bijalwan, Y. Singh, B. Shin, Y. Kim</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 399, 117414, 2026.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2025.117414" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2025.117414</a></div></li>
+</ol>
+<h4 class="year">2025</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Explainable Reinforcement and Causal Learning for Improving Trust to 6G Stakeholders</p><p class="authors">M. Arana-Catania, A. Sonee, <strong class="me">A. M. Khan</strong>, et al.</p><p class="venue"><em>IEEE Open Journal of the Communications Society</em>, vol. 6, pp. 4101–4125, 2025.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/OJCOMS.2025.3563415" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/OJCOMS.2025.3563415</a></div></li>
+<li class="pub"><p class="title">Design of pre-trained shape memory alloy actuators for finger rehabilitation</p><p class="authors">V. Vellaiyan, M. Jeong, Y. Kim, <strong class="me">A. M. Khan</strong>, V. Bijalwan, B. Shin, S. Mohamed</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 394, 116838, 2025.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2025.116838" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2025.116838</a></div></li>
+</ol>
+<h4 class="year">2024</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Adaptive neural network controller for the rotating SMA actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, V. Bijalwan, B. Shin, Y. Kim</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 370, 115240, 2024.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2024.115240" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2024.115240</a></div></li>
+</ol>
+<h4 class="year">2023</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Dexterous Robotic Hand Based on Rotational Shape Memory Alloy Actuator-Joints</p><p class="authors">H. Baek, <strong class="me">A. M. Khan</strong>, V. Bijalwan, S. Jeon, Y. Kim</p><p class="venue"><em>IEEE Transactions on Medical Robotics and Bionics</em>, vol. 5, no. 4, pp. 1082–1092, 2023.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/TMRB.2023.3315783" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/TMRB.2023.3315783</a></div></li>
+<li class="pub"><p class="title">A bidirectional rotating actuator by using a single shape memory alloy wire in a double bend shape</p><p class="authors">H. Baek, <strong class="me">A. M. Khan</strong>, Y. Kim</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 360, 114526, 2023.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2023.114526" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2023.114526</a></div></li>
+<li class="pub"><p class="title">Development of the LSTM Model and Universal Polynomial Equation for All the Sub-Phases of Human Gait</p><p class="authors">V. B. Semwal, Y. Kim, V. Bijalwan, A. Verma, G. Singh, N. Gaud, H. Baek, <strong class="me">A. M. Khan</strong></p><p class="venue"><em>IEEE Sensors Journal</em>, vol. 23, no. 14, pp. 15892–15900, 2023.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/JSEN.2023.3281401" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/JSEN.2023.3281401</a></div></li>
+<li class="pub"><p class="title">Integral sliding mode control (ISMC) with an extended state observer (ESO) for an arc-shaped shape memory alloy actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, V. Bijalwan, H. Baek, B. Shin, Y. Kim</p><p class="venue"><em>Microsystem Technologies</em>, 2023.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s00542-023-05516-8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s00542-023-05516-8</a></div></li>
+<li class="pub"><p class="title">SMA-based caterpillar robot using antagonistic actuation</p><p class="authors">H. Baek, N. A. Mansour, <strong class="me">A. M. Khan</strong>, V. Bijalwan, H. F. Ali, Y. Kim</p><p class="venue"><em>Microsystem Technologies</em>, 2023.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s00542-023-05470-5" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s00542-023-05470-5</a></div></li>
+<li class="pub"><p class="title">Tracking Multiple Unmanned Aerial Vehicles through Occlusion in Low-Altitude Airspace</p><p class="authors">S. A. Memon, H. Son, W.-G. Kim, <strong class="me">A. M. Khan</strong>, M. Shahzad, U. Khan</p><p class="venue"><em>Drones</em>, vol. 7, no. 4, 241, 2023.</p><div class="meta"><a class="doi" href="https://doi.org/10.3390/drones7040241" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.3390/drones7040241</a></div></li>
+</ol>
+<h4 class="year">2022</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Modeling and control analysis of an arc-shaped SMA actuator using PID, sliding and integral sliding mode controllers</p><p class="authors"><strong class="me">A. M. Khan</strong>, Y. Kim, B. Shin, M. H. Moghadam, N. A. Mansour</p><p class="venue"><em>Sensors and Actuators A: Physical</em>, vol. 340, 113523, 2022.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.sna.2022.113523" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.sna.2022.113523</a></div></li>
+<li class="pub"><p class="title">Efficient approach for extracting high-level B-spline features from LiDAR data for light-weight mapping</p><p class="authors">M. Usman, A. Ali, A. Tahir, M. Z. U. Rahman, <strong class="me">A. M. Khan</strong></p><p class="venue"><em>Sensors</em>, vol. 22, no. 23, 9168, 2022.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.3390/s22239168" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.3390/s22239168</a></div></li>
+<li class="pub"><p class="title">Backstepping control of novel arc-shaped SMA actuator</p><p class="authors"><strong class="me">A. M. Khan</strong>, B. Shin, M. Usman, Y. Kim</p><p class="venue"><em>Microsystem Technologies</em>, 2022.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s00542-022-05250-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s00542-022-05250-7</a></div></li>
+</ol>
+<h4 class="year">2021</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Modeling and control of a finger-like mechanism using bending shape memory alloys</p><p class="authors">H. F. Ali, <strong class="me">A. M. Khan</strong>, H. Baek, B. Shin, Y. Kim</p><p class="venue"><em>Microsystem Technologies</em>, vol. 27, no. 6, pp. 2481–2492, 2021.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s00542-020-05166-0" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s00542-020-05166-0</a></div></li>
+</ol>
+<h4 class="year">2019</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">A spiral curve gait design for a modular snake robot moving on a pipe</p><p class="authors">S. Yaqub, A. Ali, M. Usman, K. M. Zuhaib, <strong class="me">A. M. Khan</strong>, B. An, H. Moon, J.-Y. Lee, C. Han</p><p class="venue"><em>International Journal of Control, Automation and Systems</em>, vol. 17, no. 10, pp. 2565–2573, 2019.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1007/s12555-019-0074-9" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12555-019-0074-9</a></div></li>
+<li class="pub"><p class="title">An Extensive Approach to Features Detection and Description for 2-D Range Data Using Active B-splines</p><p class="authors">M. Usman, <strong class="me">A. M. Khan</strong>, A. Ali, S. Yaqub, K. M. Zuhaib, J.-Y. Lee, C.-S. Han</p><p class="venue"><em>IEEE Robotics and Automation Letters</em>, vol. 4, pp. 2934–2941, 2019.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1109/LRA.2019.2917383" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/LRA.2019.2917383</a></div></li>
+</ol>
+<h4 class="year">2018</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Motion planning for a planar mechanical system with dissipative forces</p><p class="authors">A. Ali, S. Yaqub, M. Usman, K. M. Zuhaib, <strong class="me">A. M. Khan</strong>, J.-Y. Lee, C.-S. Han</p><p class="venue"><em>Robotics and Autonomous Systems</em>, vol. 107, pp. 129–144, 2018.</p><div class="meta"><span class="badge q">Q1</span><a class="doi" href="https://doi.org/10.1016/j.robot.2018.06.002" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1016/j.robot.2018.06.002</a></div></li>
+</ol>
+<h4 class="year">2017</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Estimation of desired motion intention and compliance control for upper limb assist exoskeleton</p><p class="authors"><strong class="me">A. M. Khan</strong>, D.-W. Yun, K. M. Zuhaib, J. Iqbal, R.-J. Yan, F. Khan, C. Han</p><p class="venue"><em>International Journal of Control, Automation and Systems</em>, vol. 15, pp. 802–814, 2017.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12555-015-0151-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12555-015-0151-7</a></div></li>
+<li class="pub"><p class="title">Adaptive global fast sliding mode control for steer-by-wire system road vehicles</p><p class="authors">J. Iqbal, K. M. Zuhaib, C. Han, <strong class="me">A. M. Khan</strong>, M. A. Ali</p><p class="venue"><em>Applied Sciences</em>, vol. 7, no. 7, 738, 2017.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.3390/app7070738" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.3390/app7070738</a></div></li>
+<li class="pub"><p class="title">Lateral acceleration potential field function control for rollover safety of multi-wheel military vehicle with in-wheel-motors</p><p class="authors">M. A. Ali, C. Kim, S. Kim, <strong class="me">A. M. Khan</strong>, J. Iqbal, M. Z. Khalil, D. Lim, C. Han</p><p class="venue"><em>International Journal of Control, Automation and Systems</em>, vol. 15, pp. 837–847, 2017.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12555-014-0573-7" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12555-014-0573-7</a></div></li>
+<li class="pub"><p class="title">Collision avoidance from multiple passive agents with partially predictable behavior</p><p class="authors">K. M. Zuhaib, <strong class="me">A. M. Khan</strong>, J. Iqbal, M. A. Ali, M. Usman, A. Ali, S. Yaqub, J. Y. Lee, C. Han</p><p class="venue"><em>Applied Sciences</em>, vol. 7, no. 9, 903, 2017.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.3390/app7090903" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.3390/app7090903</a></div></li>
+</ol>
+<h4 class="year">2016</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Passivity Based Adaptive Control for Upper Extremity Assist Exoskeleton</p><p class="authors"><strong class="me">A. M. Khan</strong>, D.-W. Yun, M. A. Ali, K. M. Zuhaib, C. Yuan, J. Iqbal, J.-S. Han, K. Shin, C.-S. Han</p><p class="venue"><em>International Journal of Control, Automation and Systems</em>, vol. 14, no. 1, pp. 291–300, 2016.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12555-014-0250-x" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12555-014-0250-x</a></div></li>
+<li class="pub"><p class="title">Muscle circumference sensor and model reference-based adaptive impedance control for upper limb assist exoskeleton robot</p><p class="authors"><strong class="me">A. M. Khan</strong>, M. Usman, A. Ali, F. Khan, S. Yaqub, C. Han</p><p class="venue"><em>Advanced Robotics</em>, vol. 30, no. 24, pp. 1515–1529, 2016.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1080/01691864.2016.1251335" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1080/01691864.2016.1251335</a></div></li>
+<li class="pub"><p class="title">Handling subject arm uncertainties for upper limb rehabilitation robot using robust sliding mode control</p><p class="authors">D. Yun, <strong class="me">A. M. Khan</strong>, R. Yan, Y. Ji, H. Jang, J. Iqbal, K. M. Zuhaib, J. Y. Ahn, J. Han, C. Han</p><p class="venue"><em>International Journal of Precision Engineering and Manufacturing</em>, vol. 17, no. 3, pp. 355–362, 2016.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12541-016-0044-6" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12541-016-0044-6</a></div></li>
+<li class="pub"><p class="title">Process Improvement for PET Bottles Manufacturing Company Using Six Sigma Approach</p><p class="authors">M. Ullah, <strong class="me">A. M. Khan</strong>, R. Nawaz, R. Akhtar</p><p class="venue"><em>Technical Journal, University of Engineering and Technology Taxila</em>, vol. 21, no. 11, 2016.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+</ol>
+<h4 class="year">2015</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Development and verification of upper extremities wearable robots to aid muscular strength with the optimization of link parameters</p><p class="authors">H.-Y. Jang, Y.-H. Ji, J.-S. Han, <strong class="me">A. M. Khan</strong>, J.-Y. Ahn, C.-S. Han</p><p class="venue"><em>International Journal of Precision Engineering and Manufacturing</em>, vol. 16, no. 12, pp. 2569–2575, 2015.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12541-015-0329-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12541-015-0329-1</a></div></li>
+<li class="pub"><p class="title">Passivity based Adaptive Control and Its Optimization for Upper Limb Assist Exoskeleton</p><p class="authors"><strong class="me">A. M. Khan</strong>, Y. H. Ji, M. A. Ali, J. S. Han, C. Han</p><p class="venue"><em>Journal of the Korean Society for Precision Engineering</em>, vol. 32, no. 10, pp. 857–863, 2015.</p><div class="meta"><a class="doi" href="https://doi.org/10.7736/KSPE.2015.32.10.857" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.7736/KSPE.2015.32.10.857</a></div></li>
+<li class="pub"><p class="title">Study on Efficacy of Gait Training for Hemiplegia Patients Using Lower-Limb Wearable Robot</p><p class="authors">Y. Ji, D. Yun, H. Jang, D. Lee, <strong class="me">A. M. Khan</strong>, S. Kim, M. Kim, J. Han, C. Han</p><p class="venue"><em>Journal of the Korean Society for Precision Engineering</em>, vol. 32, no. 10, pp. 879–883, 2015.</p><div class="meta"><a class="doi" href="https://doi.org/10.7736/KSPE.2015.32.10.879" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.7736/KSPE.2015.32.10.879</a></div></li>
+<li class="pub"><p class="title">Chattering Free Sliding Mode Control of Upper Limb Rehabilitation Robot with Handling Subject and Model Uncertainties</p><p class="authors"><strong class="me">A. M. Khan</strong>, D.-W. Yun, C. Han</p><p class="venue"><em>Journal of Institute of Control, Robotics and Systems</em>, vol. 21, no. 5, pp. 421–426, 2015.</p><div class="meta"><a class="doi" href="https://doi.org/10.5302/J.ICROS.2015.15.9020" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.5302/J.ICROS.2015.15.9020</a></div></li>
+</ol>
+<h4 class="year">2014</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Pattern generation and control of a double pendulum using a nonlinear oscillator</p><p class="authors">J.-Y. Lee, <strong class="me">A. M. Khan</strong>, H.-Y. Jang, J.-S. Han, C.-S. Han</p><p class="venue"><em>International Journal of Precision Engineering and Manufacturing</em>, vol. 15, no. 8, pp. 1675–1680, 2014.</p><div class="meta"><span class="badge q">Q2</span><a class="doi" href="https://doi.org/10.1007/s12541-014-0518-3" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1007/s12541-014-0518-3</a></div></li>
+</ol>
+<h4 class="year">2012</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Development of Efficient Tactile Sensing System for Humanoid Robotics</p><p class="authors">M. I. Khan, <strong class="me">A. M. Khan</strong>, M. K. Saleem, A. Nouman</p><p class="venue"><em>Applied Mechanics and Materials</em>, vol. 232, pp. 372–376, 2012.</p><div class="meta"><a class="doi" href="https://doi.org/10.4028/www.scientific.net/AMM.232.372" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.4028/www.scientific.net/AMM.232.372</a></div></li>
+</ol>
+  <h3 class="sub">Conference Publications</h3>
+  <h4 class="year">2025</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Context-Aware Autonomous Drone Navigation Using Large Language Models</p><p class="authors"><strong class="me">A. M. Khan</strong>, et al.</p><p class="venue"><em>Proceedings of the AAAI Symposium Series</em>, vol. 6, no. 1, pp. 102–107, 2025.</p><div class="meta"><a class="doi" href="https://doi.org/10.1609/aaaiss.v6i1.36039" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1609/aaaiss.v6i1.36039</a></div></li>
+</ol>
+<h4 class="year">2016</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Estimation of desired motion intention using extreme learning machine for upper limb assist exoskeleton</p><p class="authors"><strong class="me">A. M. Khan</strong>, F. Khan, C. Han</p><p class="venue"><em>IEEE International Conference on Advanced Intelligent Mechatronics (AIM)</em>, pp. 919–923, 2016.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/AIM.2016.7576886" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/AIM.2016.7576886</a></div></li>
+</ol>
+<h4 class="year">2015</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Adaptive impedance control for upper limb assist exoskeleton</p><p class="authors"><strong class="me">A. M. Khan</strong>, D.-W. Yun, M. A. Ali, J. Han, K. Shin, C. Han</p><p class="venue"><em>IEEE International Conference on Robotics and Automation (ICRA), Seattle</em>, pp. 4359–4366, 2015.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/ICRA.2015.7139801" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/ICRA.2015.7139801</a></div></li>
+<li class="pub"><p class="title">Handling subject and model uncertainties for Upper Limb Rehabilitation Robot using chattering free Sliding Mode Control</p><p class="authors"><strong class="me">A. M. Khan</strong>, M. A. Ali, C. Han</p><p class="venue"><em>WSEAS Advances in Circuits, Systems, Signal Processing and Telecommunications</em>, vol. 14, pp. 43–49, 2015.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+<li class="pub"><p class="title">Potential Field Function based Vehicle Lateral Stability Control</p><p class="authors">M. A. Ali, <strong class="me">A. M. Khan</strong>, C. Han</p><p class="venue"><em>WSEAS Advances in Circuits, Systems, Signal Processing and Telecommunications</em>, vol. 14, pp. 112–119, 2015.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+</ol>
+<h4 class="year">2014</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Upper extremity assist exoskeleton robot</p><p class="authors"><strong class="me">A. M. Khan</strong>, D.-W. Yun, J.-S. Han, K. Shin, C.-S. Han</p><p class="venue"><em>IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN), Edinburgh</em>, pp. 892–898, 2014.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/ROMAN.2014.6926366" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/ROMAN.2014.6926366</a></div></li>
+</ol>
+<h4 class="year">2012</h4>
+<ol class="pubs">
+<li class="pub"><p class="title">Static &amp; dynamic sliding mode control of ball and beam system</p><p class="authors"><strong class="me">A. M. Khan</strong>, A. I. Bhatti, S. Ud Din, Q. Khan</p><p class="venue"><em>International Bhurban Conference on Applied Sciences and Technology (IBCAST), Islamabad</em>, pp. 32–36, 2012.</p><div class="meta"><a class="doi" href="https://doi.org/10.1109/IBCAST.2012.6177522" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>DOI: 10.1109/IBCAST.2012.6177522</a></div></li>
+<li class="pub"><p class="title">pH Sensing Materials for MEMS Sensors and Detection Techniques</p><p class="authors">M. I. Khan, <strong class="me">A. M. Khan</strong>, A. Nouman, M. I. Azhar, M. K. Saleem</p><p class="venue"><em>International Proceedings of Computer Science &amp; Information Technology</em>, vol. 32, p. 18, 2012.</p><div class="meta"><span class="doi none">No DOI</span></div></li>
+</ol>
+</div></section>
 
-        <h3>Senior Research Associate – February 2023 to April 2024</h3>
-        <p>At Bristol Flight Lab/Bristol Robotics Lab, University of Bristol, Bristol, the UK</p>
-        <ul>
-            <li>Developed an explicit, explore, or escape (E4) reinforcement learning algorithm for the Crazyflie quadcopter.</li>
-            <li>Developed deep reinforcement learning (PPO, SAC), computer vision and sensor-fusion software for safety-critical autonomous systems.</li>
-            <li>Supervised 1 MSc dissertation and 1 final year project that led to a conference publication.</li>
-            <li>Presented at the Trustworthy Autonomous Systems Symposium 2023, Heriot-Watt University, Edinburgh.</li>
-        </ul>
+<section id="awards"><div class="wrap">
+  <div class="head"><span class="num">06</span><h2>Funding &amp; Awards</h2></div>
+  <ul class="list">
+    <li><span class="yr">2022</span><span>Excellence Startup Award (OASIS-1, 4), Korean Innovation Promotion Association</span></li>
+    <li><span class="yr">2019</span><span>Korean Research Fellow Award (KRW 70 million/year), National Research Foundation of Korea, Grant No. 2019H1D3A1A01102998</span></li>
+    <li><span class="yr">2019</span><span>Ignite National Technology Fund, Ministry of Information and Telecom, Government of Pakistan (Ignite/NGIRI/2018-19/03)</span></li>
+    <li><span class="yr">2018</span><span>Ignite National Technology Fund, Ministry of Information and Telecom, Government of Pakistan (Ignite/NGIRI/2017-18/03)</span></li>
+    <li><span class="yr">2017</span><span>National Research Program for Universities (NRPU), Higher Education Commission of Pakistan, as sole PI</span></li>
+    <li><span class="yr">1997</span><span>Pakistan’s President Talent Scholarship</span></li>
+  </ul>
+  <h3 class="sub" style="margin-bottom:16px">Memberships &amp; Certifications</h3>
+  <div class="chips">
+    <span class="chip">Fellow of the Higher Education Academy (FHEA), 2025</span>
+    <span class="chip">IEEE Senior Member</span>
+    <span class="chip">Coursera Mentor, Deep Learning Specialization (2018 – present)</span>
+    <a class="chip" href="https://www.coursera.org/account/accomplishments/specialization/certificate/98L9VSMAHGAZ" target="_blank" rel="noopener">Deep Learning Specialization ↗</a>
+    <a class="chip" href="https://www.coursera.org/account/accomplishments/specialization/certificate/66VQL8S3BPFM" target="_blank" rel="noopener">Robotics Specialization ↗</a>
+    <span class="chip">Claude Code: Software Engineering, Coursera, 2025</span>
+    <span class="chip">AI Agents and Agentic AI with Python, Coursera, 2025</span>
+  </div>
+</div></section>
 
-        <h3>Online Mentor (part-time), Brunel University London, the United Kingdom – February 2022 to February 2024</h3>
-        <p>As a self-employed lecturer collaborating with Interactive Pro, I have had the opportunity to mentor courses at Brunel University London, UK. My mentorship has primarily focused on 'Modeling and Simulation' and 'CAD Modeling' subjects. In this role, I have been responsible for guiding students, addressing their queries, leading seminars on course materials, and assessing both assignments and final exam submissions.</p>
-        <p>I have also been an official Coursera Mentor for the Deep Learning Specialization (DeepLearning.AI) since 2018.</p>
-
-        <h3>Post-Doctorate Fellow – November 2019 to June 2023, Intelligent Control and Robotic Systems Lab at Hanbat National University, Daejeon, South Korea</h3>
-        <ul>
-            <li>Successfully developed SMA models with an impressive accuracy rate of up to 80%.</li>
-            <li>Implemented adaptive neural network-based control strategies for SMA actuators, achieving an exceptional accuracy level of 99.5%.</li>
-            <li>Developed SMA-actuated robotic hand and caterpillar robot.</li>
-            <li>Won 2 Excellence Startup Awards for a ROS-based delivery robot and an agricultural drone.</li>
-            <li>Implemented proximal policy optimization algorithm on legged robot and soft actor critic agent algorithm on mobile robot.</li>
-        </ul>
-
-        <h3>Assistant Professor - Department of Mechatronics Engineering, UET Taxila, Sub-Campus Chakwal – From January 24, 2011, to December 2019</h3>
-        <ul>
-            <li>Taught: Robotics, Control Systems, Machine Learning, Machine Vision, Microcontrollers and Embedded Systems, Digital Electronics, Mechatronic System Design, Programming Languages</li>
-            <li>Initiated the M.Sc. Mechatronics Engineering programme and led the Self-Assessment Report for international accreditation.</li>
-            <li>Secured the NRPU 2017 national research grant as sole PI; managed and mentored 8 faculty members.</li>
-        </ul>
-
-        <h3>Post-Doctorate – From February 22, 2016, to February 28, 2017, at CNR Lab, Hanyang University, ERICA Campus, Ansan, South Korea</h3>
-        <p>Work Experience: 1 Year and 7 days</p>
-
-        <h3>Assistant Manager – National Development Complex, Islamabad, From 3rd March 2008 to January 21, 2011</h3>
-        <p>Work Experience: 2 Years, 10 Months and 19 Days.</p>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>Postgraduate Certificate in Academic Practice (PGCAP)</strong></p>
-        <p>University of West London, UK (2024 to August 2025), leading to Fellowship of the Higher Education Academy</p>
-
-        <p><strong>Ph.D. Mechanical Design Engineering</strong></p>
-        <p>Hanyang University, Seoul, Republic of Korea (September 2012 to February 2016)</p>
-
-        <p><strong>M.Sc. Mechatronics & Control Engineering</strong></p>
-        <p>University of Engineering & Technology, Lahore, Pakistan (October 2007 to November 2010)</p>
-
-        <p><strong>B.Sc. Mechatronics & Control Engineering</strong></p>
-        <p>University of Engineering & Technology, Lahore, Pakistan (September 2003 to October 2007)</p>
-    </section>
-
-    <section id="certifications">
-        <h2>Memberships &amp; Certifications</h2>
-        <ul>
-            <li>Fellow of the Higher Education Academy (FHEA), Advance HE, 2025</li>
-            <li>Senior Member, IEEE</li>
-            <li>Official Coursera Mentor, Deep Learning Specialization (2018 to date)</li>
-            <li>Claude Code: Software Engineering, and AI Agents and Agentic AI with Python, Coursera, 2025</li>
-            <li>Specialization in Deep Learning from Coursera (<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/98L9VSMAHGAZ" target="_blank">certificate</a>)</li>
-            <li>Specialization in Robotics from Coursera (<a href="https://www.coursera.org/account/accomplishments/specialization/certificate/66VQL8S3BPFM" target="_blank">certificate</a>)</li>
-        </ul>
-    </section>
-    <section id="International-publications">
-        <h2>International Journal Publications</h2>
-        <ul>
-            <li>A. M. Khan, "XAI-guided optimizer distillation for real-time UAV relay positioning in terahertz 6G low-altitude ad hoc networks," Ad Hoc Networks, vol. 169, p. 104389, 2025. (Q1)</li>
-            <li>M. Arana-Catania, A. Sonee, A. M. Khan, et al., "Explainable Reinforcement and Causal Learning for Improving Trust to 6G Stakeholders," IEEE Open Journal of the Communications Society, vol. 6, pp. 4101–4125, 2025. (Q1)</li>
-            <li>V. Vellaiyan, A. M. Khan, et al., "Design of soft glove for stroke patient rehabilitation using pretrained SMA actuator," Sensors and Actuators A: Physical, vol. 399, p. 116838, 2025. (Q1)</li>
-            <li>A. M. Khan, V. Bijalwan, B. Shin, and Y. Kim, "Adaptive neural network controller for the rotating SMA actuator," Sensors and Actuators A: Physical, vol. 370, p. 115240, 2024. (Q1)</li>
-            <li>H. Baek, A. M. Khan, V. Bijalwan, S. Jeon and Y. Kim, "Dexterous Robotic Hand Based on Rotational Shape Memory Alloy Actuator-Joints," in IEEE Transactions on Medical Robotics and Bionics, doi: 10.1109/TMRB.2023.3315783.</li>
-            <li>H. Baek, A. M. Khan, and Y. Kim, "A bidirectional rotating actuator by using a single shape memory alloy wire in a double bend shape," Sensors and Actuators A: Physical, vol. 360, p. 114526, 2023. (Q1, IF = 4.325)</li>
-            <li>A. M. Khan, V. Bijalwan, H. Baek, B. Shin, and Y. Kim, "Integral sliding mode control (ismc) with an extended state observer (eso) for an arc-shaped shape memory alloy actuator," Microsystem Technologies, pp. 1–7, 2023. (Q2, IF = 1.513)</li>
-            <li>V. B. Semwal, Y. Kim, V. Bijalwan, A. Verma, G. Singh, N. Gaud, H. Baek, and A. M. Khan, "Development of the LSTM model and universal polynomial equation for all the sub-phases of human gait." IEEE Sensors Journal, 2023. (Q1, IF = 4.325)</li>
-            <li>H. Baek, N. A. Mansour, A. M. Khan, V. Bijalwan, H. F. Ali, and Y. Kim, "Sma-based caterpillar robot using antagonistic actuation," Microsystem Technologies, pp. 1–15, 2023. (Q2, IF = 1.513)</li>
-            <li>Memon, Sufyan Ali, Hungsun Son, Wan-Gu Kim, Abdul Manan Khan, Mohsin Shahzad, and Uzair Khan. 2023. "Tracking Multiple Unmanned Aerial Vehicles through Occlusion in Low-Altitude Airspace" Drones. 2023; 7(4):241. <a href="https://doi.org/10.3390/drones7040241" target="_blank">https://doi.org/10.3390/drones7040241</a></li>
-            <li>A. M. Khan, Y. Kim, B. Shin, M. H. Moghadam, N. A. Mansour, "Modeling and control analysis of an arc shaped sma actuator using pid, sliding and integral sliding mode controllers," Sensors and Actuators A: Physical 340 (2022) 113523. (Q1, IF = 3.407)</li>
-            <li>M. Usman, A. Ali, A. Tahir, M. Z. U. Rahman, and A. M. Khan, "Efficient approach for extracting high-level bspline features from lidar data for light-weight mapping," Sensors, vol. 22, no. 23, p. 9168, 2022. (Q2, IF = 3.847)</li>
-            <li>A. M. Khan, B. Shin, M. Usman, Y. Kim, "Backstepping control of novel arc-shaped sma actuator," Microsystem Technologies (2022), pp. 1–12, 2022. (Q2, IF = 1.513)</li>
-            <li>H. F. Ali, A. M. Khan, H. Baek, B. Shin, Y. Kim, "Modeling and control of a finger-like mechanism using bending shape memory alloys," Microsystem Technologies 27 (6) (2021) 2481–2492. (Q2, IF = 1.513)</li>
-            <li>S. Yaqub, A. Ali, M. Usman, K. M. Zuhaib, A. M. Khan, B. An, H. Moon, J.-Y. Lee, C. Han, "A spiral curve gait design for a modular snake robot moving on a pipe," International Journal of Control, Automation and Systems 17 (10) (2019) 2565–2573. (Q1, IF = 3.314)</li>
-            <li>M. Usman, Abdul Manan Khan, A. Ali, S. Yaqub, K. M. Zuhaib, J.-Y. Lee, and C. Soo Han, “An Extensive Approach to Features Detection and Description for 2-D Range Data Using Active B-splines,” IEEE Robotics and Automation Letters, Vol. 4, pp. 2934 - 2941, 2019. (Q1, IF = 4.321)</li>
-            <li>A. Ali, S. Yaqub, M. Usman, K. M. Zuhaib, A. M. Khan, J.-Y. Lee, and C. soo Han, “Motion planning for a planar mechanical system with dissipative forces,” Robotics and Autonomous Systems, vol. 107, pp. 129 – 144, 2018. (Q1, IF = 2.928)</li>
-            <li>M. Khan, D.-w. Yun, K. M. Zuhaib, J. Iqbal, R.-J. Yan, F. Khan, and C. Han, “Estimation of desired motion intention and compliance control for upper limb assist exoskeleton,” International Journal of Control, Automation and Systems, vol. 15, pp. 802–814, Apr. 2017. (Q2, IF = 2.181)</li>
-            <li>Khan, A.M., Deok-won, Y., Ali, M.A, K.M. Zuhaib, Chao Yuan, J. Iqbal, Jung-Soo, H., Kyoosik, S., and Chang-Soo, Han, “Passivity Based Adaptive Control for Upper Extremity Assist Exoskeleton”, International Journal of Control, Automation and Systems, Vol. 14. No. 1, pp-291-300, 2016. (Q2, IF = 2.181)</li>
-            <li>M. Khan, M. Usman, A. Ali, F. Khan, S. Yaqub, and C. Han, “Muscle circumference sensor and model reference-based adaptive impedance control for upper limb assist exoskeleton robot,” Advanced Robotics, vol. 30, no. 24, pp. 1515–1529, 2016. (Q2, IF = 1.104)</li>
-            <li>J. Iqbal, K. M. Zuhaib, C. Han, A. M. Khan, and M. A. Ali, “Adaptive global fast sliding mode control for steer-by-wire system road vehicles,” Applied Sciences, vol. 7, no. 7, 2017. (Q2, IF = 1.484)</li>
-            <li>M. A. Ali, C. Kim, S. Kim, A. M. Khan, J. Iqbal, M. Z. Khalil, D. Lim, and C. Han, “Lateral acceleration potential field function control for rollover safety of multi-wheel military vehicle with in-wheel-motors,” International Journal of Control, Automation and Systems, vol. 15, pp. 837–847, Apr 2017. (Q2, IF = 2.181)</li>
-            <li>K. M. Zuhaib, A. M. Khan, J. Iqbal, M. A. Ali, M. Usman, A. Ali, S. Yaqub, J. Y. Lee, and C. Han, “Collision avoidance from multiple passive agents with partially predictable behavior,” Applied Sciences, vol. 7, no. 9, 2017. (Q2, IF = 1.484)</li>
-            <li>Deokwon Yun, Abdul Manan Khan, Rui Yan, Younghoon Ji, Hyeyoun Jang, Junaid Iqbal, K. M. Zuhaib, Jae Yong Ahn, Jungsoo Han, Changsoo Han, “Handling Subject Arm Uncertainties for Upper Limb Rehabilitation Robot”, International Journal of Precision Engineering and Manufacturing, Vol. 17, No. 3, pp. 355-362, 2015. (Q2, IF = 1.779)</li>
-            <li>Jang, H.-Y., Ji, Y.-H., Han, J.-S., Khan, A.M., Ahn, J.-Y., Han, C.-S., “Development and verification of upper extremities wearable robots to aid muscular strength with the optimization of link parameters”, International Journal of Precision Engineering and Manufacturing, Vol 16, No. 12, pp. 2569-2575, 2015. (Q2, IF = 1.779)</li>
-            <li>Lee, J.-Y., Khan, A., Jang, H.-Y., Han, J.-S., and Han, C.-S.: ‘Pattern generation and control of a double pendulum using a nonlinear oscillator’, International Journal of Precision Engineering and Manufacturing, Vol. 15, No. 8, pp. 1675-1680, 2014. (Q2, IF = 1.779)</li>
-        </ul>
-
-    </section>
-    <section id="local-publications">
-        <h2>Local Journal Publications</h2>
-        <ul>
-            <li>M. I. Khan, A. M. Khan, M. K. Saleem, A. Nouman, "Development of Efficient Tactile Sensing System for Humanoid Robotics", Applied Mechanics and Materials, 2012, Vol. 232, pp. 372-376, 2012</li>
-            <li>M. Ullah, A. M. Khan, R. Nawaz, R. Akhtar, “Process Improvement for PET Bottles Manufacturing Company Using Six Sigma Approach”, Technical Journal, University of Engineering and Technology ([JET) Taxila, Pakistan, Vol. 21 No.11-2016</li>
-            <li>Khan, A.M., Young Hun Ji, M.A. Ali, Jung Soo Han, and Changsoo Han, “Passivity based Adaptive Control and Its Optimization for Upper Limb Assist Exoskeleton”, Journal of Korean Society for Precision Engineering, 2015, Vol. 32, No. 10, pp. 857-863</li>
-            <li>Abdul Manan Khan, Deok-Won Yun, and Changsoo Han, “Chattering Free Sliding Mode Control of Upper Limb Rehabilitation Robot with Handling Subject and Model Uncertainties”, Journal of Institute of Control, Robotics and Systems, 2015, Vol. 21, No. 5, pp. 421-426</li>
-            <li>Younghoon Ji, Deokwon Yun, Hyeyoun Jang, Dongbock Lee, Abdul Manan Khan, Sol Kim, Mijung Kim, Jungsoo Han, and Changsoo Han, “Study on Efficacy of Gait Training for Hemiplegia Patients Using Lower-Limb Wearable Robot”, Journal of Korean Society for Precision Engineering, 2015, Vol. 32, No. 10, pp. 879-883</li>
-        </ul>
-    </section>
-
-    <section id="conference-publications">
-        <h2>Conference Publications</h2>
-        <ul>
-            <li>A. M. Khan, et al., "Context-Aware Autonomous Drone Navigation Using Large Language Models," Proceedings of the AAAI Symposium Series, vol. 6, no. 1, pp. 102–107, 2025.</li>
-            <li>A. M. Khan, D. w. Yun, M. A. Ali, J. Han, K. Shin and C. Han, "Adaptive impedance control for upper limb assist exoskeleton," Robotics and Automation (ICRA), 2015, Seattle, WA, 2015, pp. 4359-4366.</li>
-            <li>Khan, A.M., A. M. Khan, D. w. Yun, J. S. Han, K. Shin and C. S. Han, "Upper extremity assist exoskeleton robot," The 23rd IEEE International Symposium on Robot and Human Interactive Communication, 2014 RO-MAN: T Edinburgh, 2014, pp. 892-898.</li>
-            <li>Abdul Manan Khan, Amir Iqbal Bhatti, Sami-ud-Din and Q. Khan, "Static & dynamic sliding mode control of ball and beam system," 9th International Bhurban Conference on Applied Sciences and Technology (IBCAST), 2012, Islamabad, 2012, pp. 32-36.</li>
-            <li>M. I. Khan, A. M. Khan, A. Nouman, M. I. Azhar, and M. K. Saleem, "pH Sensing Materials for MEMS Sensors and Detection Techniques," International Proceedings of Computer Science & Information Tech;2012, Vol. 32, p18</li>
-            <li>Khan, A.M., Mian Asfhfaq Ali, Changsoo Han, “Handling subject and model uncertainties for Upper Limb Rehabilitation Robot using chattering free Sliding Mode Control”, WSEAS Proceedings of Advances in Circuits, Systems, Signal Processing and Telecommunications; 2015, Vol. 14, pp. 43-49.</li>
-            <li>Mian Asfhfaq Ali, Khan, A.M., Changsoo Han, “Potential Field Function based Vehicle Lateral Stability Control”, WSEAS Proceedings of Advances in Circuits, Systems, Signal Processing and Telecommunications; 2015, Vol. 14, pp. 112-119.</li>
-            <li>M. Khan, F. Khan, and C. Han, “Estimation of desired motion intention using extreme learning machine for upper limb assist exoskeleton,” in 2016 IEEE International Conference on Advanced Intelligent Mechatronics (AIM), pp. 919–923, July 2016</li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you'd like to get in touch, please send an email to <a href="mailto:amk.617@outlook.com">amk.617@outlook.com</a>.</p>
-    </section>
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2>Get in touch</h2>
+    <p>I welcome enquiries about research collaboration, PhD supervision and teaching.</p>
+    <a class="btn" href="mailto:amk.617@outlook.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>amk.617@outlook.com</a>
+  </div>
+</div></section>
 </main>
 
-<footer>
-    <p>&copy; 2026 Dr. Abdul Manan Khan</p>
-</footer>
+<footer>&copy; 2026 Dr. Abdul Manan Khan</footer>
 
+<script>
+(function () {
+  var q = document.getElementById('q'), count = document.getElementById('count');
+  var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
+  var base = count.textContent;
+  q.addEventListener('input', function () {
+    var t = q.value.trim().toLowerCase(), shown = 0;
+    pubs.forEach(function (p) {
+      var y = p.parentNode.previousElementSibling.textContent;
+      var hit = !t || (p.textContent + ' ' + y).toLowerCase().indexOf(t) > -1;
+      p.classList.toggle('hide', !hit); if (hit) shown++;
+    });
+    document.querySelectorAll('h4.year').forEach(function (h) {
+      var list = h.nextElementSibling;
+      h.classList.toggle('hide', !list.querySelector('.pub:not(.hide)'));
+    });
+    count.textContent = t ? shown + ' matching papers' : base;
+  });
+})();
+</script>
 </body>
 </html>
