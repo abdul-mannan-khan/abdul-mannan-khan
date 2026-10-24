@@ -11,13 +11,13 @@
 <style>
 :root {
   --bg: #f7f5f0; --surface: #ffffff; --surface-2: #f0ede5; --ink: #16202e; --muted: #5b6575;
-  --line: #e3ded2; --accent: #1f5f8b; --accent-2: #c4793a; --accent-soft: #e4eef6; --badge: #e9f3ea; --badge-ink: #2d6a3a; --on-accent: #ffffff;
+  --line: #e3ded2; --accent: #1f5f8b; --accent-2: #c4793a; --accent-soft: #e4eef6; --badge: #e9f3ea; --badge-ink: #2d6a3a; --on-accent: #ffffff; --imp: #0000cd;
   --shadow: 0 1px 2px rgba(22,32,46,.04), 0 8px 24px rgba(22,32,46,.06);
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0f141b; --surface: #161d27; --surface-2: #1c2531; --ink: #e8ecf1; --muted: #9aa5b4;
-    --line: #273242; --accent: #6fb1e0; --accent-2: #e5a06a; --accent-soft: #1b2b3b; --badge: #1d3324; --badge-ink: #8fd19e; --on-accent: #0f141b;
+    --line: #273242; --accent: #6fb1e0; --accent-2: #e5a06a; --accent-soft: #1b2b3b; --badge: #1d3324; --badge-ink: #8fd19e; --on-accent: #0f141b; --imp: #8c9bff;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.3);
   }
 }
@@ -43,12 +43,16 @@ nav.top .wrap { display: flex; align-items: center; justify-content: space-betwe
 .hero::before { content: ""; position: absolute; inset: -40% -10% auto auto; width: 620px; height: 620px; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%); pointer-events: none; }
 .hero .intro { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; position: relative; }
-.portrait { width: 280px; height: 350px; border-radius: 20px; object-fit: cover; border: 6px solid var(--surface);
+.portrait { width: 280px; height: 350px; border-radius: 20px; object-position: 50% 30%; object-fit: cover; border: 6px solid var(--surface);
   box-shadow: 0 0 0 2px var(--accent), var(--shadow); }
 .eyebrow { color: var(--accent-2); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: .8rem; }
 .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 6px 0 4px; letter-spacing: -.01em; }
 .creds { color: var(--muted); font-weight: 500; }
-.role { font-size: 1.1rem; margin: 14px 0 22px; max-width: 46ch; }
+.role { font-size: 1.1rem; margin: 14px 0 10px; max-width: 46ch; }
+.prev { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: .9rem; color: var(--muted); margin: 0 0 22px; padding: 6px 14px 6px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--imp) 30%, var(--line)); background: color-mix(in srgb, var(--imp) 6%, var(--surface)); }
+.prev-logo { height: 12px; width: auto; }
+.prev-logo.dark { display: none; }
+@media (prefers-color-scheme: dark) { .prev-logo.light { display: none; } .prev-logo.dark { display: inline; } }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; font-weight: 500; font-size: .92rem;
   border: 1px solid var(--line); background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
@@ -86,6 +90,13 @@ section + section { border-top: 1px solid var(--line); }
 .timeline > li::before { content: ""; position: absolute; left: 0; top: 7px; width: 16px; height: 16px; border-radius: 50%;
   background: var(--surface); border: 3px solid var(--accent); }
 .timeline > li.now::before { background: var(--accent); box-shadow: 0 0 0 5px var(--accent-soft); }
+.timeline > li.featured::before { background: var(--imp); border-color: var(--imp); box-shadow: 0 0 0 6px color-mix(in srgb, var(--imp) 18%, transparent); }
+.feat { position: relative; background: linear-gradient(135deg, color-mix(in srgb, var(--imp) 7%, var(--surface)), var(--surface) 60%);
+  border: 1px solid color-mix(in srgb, var(--imp) 35%, var(--line)); border-left: 4px solid var(--imp); border-radius: 16px; padding: 22px 26px 18px; box-shadow: var(--shadow); }
+.feat-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.feat-logo { height: 28px; width: auto; display: block; }
+.feat-tag { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--imp); background: color-mix(in srgb, var(--imp) 12%, transparent); padding: 4px 10px; border-radius: 999px; }
+.feat ul li a { font-weight: 500; }
 .when { font-size: .82rem; font-weight: 600; color: var(--accent-2); letter-spacing: .03em; text-transform: uppercase; }
 .timeline h3 { font-size: 1.2rem; margin: 2px 0; }
 .org { color: var(--muted); margin-bottom: 8px; }
@@ -163,12 +174,13 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 
 <header class="hero" id="top">
   <div class="wrap intro">
-    <img class="portrait" src="assets/portrait.jpg" alt="Dr. Abdul Manan Khan at the main entrance of Imperial College London" width="280" height="350">
+    <img class="portrait" src="assets/portrait.jpg" alt="Dr. Abdul Manan Khan" width="280" height="350">
     <div>
       <div class="eyebrow">Robotics · Control · Artificial Intelligence</div>
       <h1>Dr. Abdul Manan Khan</h1>
       <div class="creds">PhD, FHEA, IEEE Senior Member</div>
       <p class="role">Lecturer (Assistant Professor) in Electronics and Robotics, School of Computing and Engineering, <strong>University of West London</strong>, UK.</p>
+      <p class="prev"><img src="assets/imperial-logo-blue.png" alt="" width="110" height="12" class="prev-logo light"><img src="assets/imperial-logo-white.png" alt="" width="110" height="12" class="prev-logo dark">Formerly Research Associate, Imperial College London</p>
       <div class="actions">
         <a class="btn primary" href="mailto:amk.617@outlook.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
         <a class="btn" href="https://scholar.google.com/citations?user=akoaYEEAAAAJ&amp;hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a>
@@ -208,7 +220,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c0-6 4-6 4-12a4 4 0 0 1 8 0c0 6 4 6 4 12"/><path d="M9 20v-4m6 4v-4"/></svg></div><h3>Soft Robotics &amp; Shape Memory Alloy Actuators</h3><p>Modelling and neural-network control of shape memory alloy actuators, robotic hands and caterpillar robots.</p></div>
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21v-6l-2-4 3-5h4l2 4h4"/><circle cx="9" cy="3" r="1.5"/><path d="M13 11l3 3v7"/></svg></div><h3>Rehabilitation Robotics</h3><p>Upper-limb exoskeletons, rehabilitation gloves and human motion-intention estimation.</p></div>
     <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div><h3>Nonlinear &amp; Adaptive Control</h3><p>Sliding mode, backstepping, impedance and adaptive control for robots and vehicles.</p></div>
-    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Engineering Education</h3><p>Sensors and actuators, automation and control, and project-based learning in robotics and AI.</p></div>
+    <div class="card"><div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg></div><h3>Engineering Education</h3><p>Sensors and actuators, automation and control, and project-based learning in robotics and artificial intelligence.</p></div>
   </div>
 </div></section>
 
@@ -219,9 +231,13 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
       <ul><li>Module Leader for Sensors and Actuators and Automation and Control (Level 7), and Applied Engineering Project, Essential Technology and Control Systems Theory and Practice (Levels 3/6).</li>
       <li>Teaching across the Robotics and Artificial Intelligence, Electronic Engineering and Mechanical Engineering programmes, with practical sessions in Python and MATLAB.</li>
       <li>Personal Academic Tutor, admissions interviewer and PhD supervisor; published 3 Q1 journal articles in 2024–2025.</li></ul></li>
-    <li><div class="when">May 2024 – Sep 2024</div><h3>Research Associate in Trustworthy Artificial Intelligence for Autonomous Systems</h3><div class="org">Imperial College London, London, UK</div>
-      <ul><li>Developed explainable reinforcement learning and artificial intelligence-driven control for autonomous systems, contributing to a Q1 IEEE journal paper.</li>
-      <li>Teaching Assistant for the Electronic Systems module (laboratory sessions, tutorials and embedded programming).</li></ul></li>
+    <li class="featured"><div class="feat">
+      <div class="feat-head"><picture><source srcset="assets/imperial-logo-white.png" media="(prefers-color-scheme: dark)"><img class="feat-logo" src="assets/imperial-logo-blue.png" alt="Imperial College London" width="300" height="33"></picture><span class="feat-tag">Imperial College London</span></div>
+      <div class="when">May 2024 – Sep 2024</div><h3>Research Associate in Trustworthy Artificial Intelligence for Autonomous Systems</h3><div class="org">Dyson School of Design Engineering, Imperial College London, South Kensington, London, UK</div>
+      <ul><li>Developed explainable reinforcement learning and artificial intelligence-driven control for safe, trustworthy autonomous systems.</li>
+      <li>Co-authored <a href="https://doi.org/10.1109/OJCOMS.2025.3563415" target="_blank" rel="noopener">“Explainable Reinforcement and Causal Learning for Improving Trust to 6G Stakeholders”</a>, IEEE Open Journal of the Communications Society (Q1, 2025).</li>
+      <li>Teaching Assistant for the Electronic Systems module (laboratory sessions, tutorials and embedded programming).</li></ul>
+    </div></li>
     <li><div class="when">Feb 2023 – Apr 2024</div><h3>Senior Research Associate</h3><div class="org">Bristol Flight Lab / Bristol Robotics Laboratory, University of Bristol, UK</div>
       <ul><li>Developed an explicit, explore, or escape (E4) reinforcement learning algorithm for the Crazyflie quadcopter.</li>
       <li>Developed deep reinforcement learning (PPO, SAC), computer vision and sensor-fusion software for safety-critical autonomous systems.</li>
