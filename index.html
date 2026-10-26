@@ -83,6 +83,20 @@ section + section { border-top: 1px solid var(--line); }
 .card h3 { font-size: 1.1rem; margin-bottom: 6px; }
 .card p { margin: 0; color: var(--muted); font-size: .93rem; }
 
+/* videos */
+.videos { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.video { display: block; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); color: var(--ink); transition: transform .15s, border-color .15s; }
+.video:hover { text-decoration: none; transform: translateY(-2px); border-color: var(--accent); }
+.video .thumb { position: relative; aspect-ratio: 16 / 9; background: var(--surface-2); }
+.video .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.video .play { position: absolute; inset: 0; display: grid; place-items: center; }
+.video .play span { width: 52px; height: 52px; border-radius: 50%; background: rgba(0,0,0,.6); display: grid; place-items: center; }
+.video .play svg { width: 22px; height: 22px; fill: #fff; stroke: none; margin-left: 3px; }
+.video .txt { padding: 12px 16px 14px; }
+.video h3 { font-size: 1rem; margin-bottom: 4px; }
+.video p { margin: 0; color: var(--muted); font-size: .88rem; }
+.more-videos { margin-top: 18px; }
+
 /* timeline */
 .timeline { position: relative; margin: 0; padding: 0; list-style: none; }
 .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
@@ -166,7 +180,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
   <div class="wrap">
     <a class="brand" href="#top">Dr. Abdul Manan Khan</a>
     <div class="links">
-      <a href="#about">About</a><a href="#research">Research</a><a href="#experience">Experience</a>
+      <a href="#about">About</a><a href="#research">Research</a><a href="#videos">Videos</a><a href="#experience">Experience</a>
       <a href="#education">Education</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
     </div>
   </div>
@@ -224,8 +238,24 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
   </div>
 </div></section>
 
+<section id="videos"><div class="wrap">
+  <div class="head"><span class="num">03</span><h2>Project Videos</h2></div>
+  <div class="lead"><p>Short demonstrations of robots, drones and controllers from my research.</p></div>
+  <div class="videos">
+    <a class="video" href="https://www.youtube.com/watch?v=jM0R4A10_9k" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/jM0R4A10_9k/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>Safe reinforcement learning control for a drone in human presence</h3><p>Drones · Safe RL</p></div></a>
+    <a class="video" href="https://www.youtube.com/shorts/4ffRYZYpAkc" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/4ffRYZYpAkc/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>Drone flying in a scaled urban environment</h3><p>Drones · Autonomous flight</p></div></a>
+    <a class="video" href="https://www.youtube.com/shorts/pxFtXxIMWUI" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/pxFtXxIMWUI/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>Crazyflie motion planning and control</h3><p>Drones · Motion planning</p></div></a>
+    <a class="video" href="https://www.youtube.com/watch?v=n3poAvv3e0M" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/n3poAvv3e0M/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>Soft robotic hand with shape memory alloy actuators</h3><p>Soft robotics · SMA actuators</p></div></a>
+    <a class="video" href="https://www.youtube.com/watch?v=hx4_EYdZYxo" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/hx4_EYdZYxo/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>UR5 industrial robot with ROS</h3><p>Manipulators · ROS</p></div></a>
+    <a class="video" href="https://www.youtube.com/watch?v=82VEt2ZYzfA" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/82VEt2ZYzfA/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>ROS mobile robot with depth camera and lidar</h3><p>Mobile robots · ROS</p></div></a>
+    <a class="video" href="https://www.youtube.com/watch?v=rn3GZW5X-_k" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/rn3GZW5X-_k/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>Legged spider robot running in RaiSim</h3><p>Legged robots · Simulation</p></div></a>
+    <a class="video" href="https://www.youtube.com/watch?v=B6RS8zxsd6I" target="_blank" rel="noopener"><div class="thumb"><img src="https://i.ytimg.com/vi/B6RS8zxsd6I/hqdefault.jpg" alt="" loading="lazy" width="480" height="270"><div class="play"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg></span></div></div><div class="txt"><h3>AI driver trained with Soft Actor-Critic</h3><p>Reinforcement learning</p></div></a>
+  </div>
+  <p class="more-videos"><a class="btn" href="https://www.youtube.com/@DreamRobotics/videos" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg>All videos on YouTube</a></p>
+</div></section>
+
 <section id="experience"><div class="wrap">
-  <div class="head"><span class="num">03</span><h2>Experience</h2></div>
+  <div class="head"><span class="num">04</span><h2>Experience</h2></div>
   <ul class="timeline">
     <li class="now"><div class="when">Sep 2024 – Present</div><h3>Lecturer (Assistant Professor) in Electronics and Robotics</h3><div class="org">School of Computing and Engineering, University of West London, London, UK</div>
       <ul><li>Module Leader for Sensors and Actuators and Automation and Control (Level 7), and Applied Engineering Project, Essential Technology and Control Systems Theory and Practice (Levels 3/6).</li>
@@ -257,7 +287,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 </div></section>
 
 <section id="education"><div class="wrap">
-  <div class="head"><span class="num">04</span><h2>Education</h2></div>
+  <div class="head"><span class="num">05</span><h2>Education</h2></div>
   <div class="edu">
     <div class="card"><span class="when">2016</span><h3>Ph.D. Mechanical Design Engineering</h3><p>Hanyang University, Seoul, South Korea</p></div>
     <div class="card"><span class="when">2025</span><h3>Postgraduate Certificate in Academic Practice</h3><p>University of West London, UK. Leading to Fellowship of the Higher Education Academy</p></div>
@@ -267,7 +297,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 </div></section>
 
 <section id="publications"><div class="wrap">
-  <div class="head"><span class="num">05</span><h2>Publications</h2></div>
+  <div class="head"><span class="num">06</span><h2>Publications</h2></div>
   <div class="toolbar">
     <label class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search by title, author, journal or year" aria-label="Search publications"></label>
@@ -410,7 +440,7 @@ footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 32
 </div></section>
 
 <section id="awards"><div class="wrap">
-  <div class="head"><span class="num">06</span><h2>Funding &amp; Awards</h2></div>
+  <div class="head"><span class="num">07</span><h2>Funding &amp; Awards</h2></div>
   <ul class="list">
     <li><span class="yr">2022</span><span>Excellence Startup Award (OASIS-1, 4), Korean Innovation Promotion Association</span></li>
     <li><span class="yr">2019</span><span>Korean Research Fellow Award (KRW 70 million/year), National Research Foundation of Korea, Grant No. 2019H1D3A1A01102998</span></li>
