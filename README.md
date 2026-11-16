@@ -17,10 +17,17 @@ I build robots and drones that are safe, explainable and work in the real world,
 
 58 publications · 39 journal articles · 780+ citations · h-index 16 · IEEE Senior Member · Fellow of the Higher Education Academy
 
+## Featured: warehouse robot simulation in NVIDIA Isaac Sim
+
+[![Warehouse picking shift replayed in NVIDIA Isaac Sim](https://github.com/abdul-mannan-khan/warehouse-sim-rl/raw/main/media/demo_isaac.gif)](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)
+
+A simulated warehouse shift with mobile picking robots and human pickers, dispatched by a learned policy (masked PPO) and replayed in NVIDIA Isaac Sim. The discrete-event model is built in SimPy and calibrated with Optuna. **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)** · [Code: warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl)
+
 ## Selected repositories
 
 | Repository | What it is |
 |---|---|
+| [warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl) | Warehouse picking simulator: SimPy discrete-event model, Gymnasium environment, PPO dispatch policy, Optuna calibration and an NVIDIA Isaac Sim replay |
 | [rl-tuned-mpc-drones](https://github.com/abdul-mannan-khan/rl-tuned-mpc-drones) | Reinforcement-learning-enhanced model predictive control for multi-drone systems |
 | [wind-aware-delivery](https://github.com/abdul-mannan-khan/wind-aware-delivery) | Wind-aware route, altitude and speed planning for quadrotor parcel delivery in cities, with PX4 hardware-in-the-loop |
 | [quadrotor-wind-corridors](https://github.com/abdul-mannan-khan/quadrotor-wind-corridors) | Quadrotor package delivery through urban wind corridors: 6-DOF simulator and wind-aware planner |
