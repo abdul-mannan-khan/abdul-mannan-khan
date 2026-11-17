@@ -21,7 +21,7 @@ I build robots and drones that are safe, explainable and work in the real world,
 
 [![Warehouse picking shift replayed in NVIDIA Isaac Sim](https://github.com/abdul-mannan-khan/warehouse-sim-rl/raw/main/media/demo_isaac.gif)](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)
 
-A simulated warehouse shift with mobile picking robots and human pickers, dispatched by a learned policy (masked PPO) and replayed in NVIDIA Isaac Sim. The discrete-event model is built in SimPy and calibrated with Optuna. **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)** · [Code: warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl)
+A simulated warehouse shift with no people in it: mobile robots that pick parcels off the shelves with their own two UR5e arms, and UR5e arms at the packing tables, dispatched by a learned policy (masked PPO) and replayed in NVIDIA Isaac Sim. The discrete-event model is built in SimPy and calibrated with Optuna. **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)** · [Code: warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl)
 
 ## Selected repositories
 
