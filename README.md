@@ -23,10 +23,17 @@ I build robots and drones that are safe, explainable and work in the real world,
 
 A simulated warehouse shift with no people in it: mobile robots that pick parcels off the shelves with their own two UR5e arms, and UR5e arms at the packing tables, dispatched by a learned policy (masked PPO) and replayed in NVIDIA Isaac Sim. The discrete-event model is built in SimPy and calibrated with Optuna. **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/warehouse-sim-rl/blob/main/media/demo_isaac.mp4)** · [Code: warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl)
 
+## Featured: farm digital twin in NVIDIA Isaac Sim
+
+[![Farm digital twin with a weeding rover, a survey drone and a scouting robot in NVIDIA Isaac Sim](https://github.com/abdul-mannan-khan/farm-digital-twin/raw/main/media/farm_twin.gif)](https://github.com/abdul-mannan-khan/farm-digital-twin/blob/main/media/farm_twin.mp4)
+
+A farm field built from scratch in NVIDIA Isaac Sim: about 30,000 procedurally modelled lettuce and maize plants on shaped soil under a real farm HDRI sky. A UR5e on a Clearpath Ridgeback pulls weeds into its bin, a Holybro X500 drone flies a survey and streams synthetic training data (RGB, depth, semantic segmentation, weed boxes), and a Clearpath Jackal scouts the maize. Runs in a Docker container (`docker run --gpus all farm-twin render`). **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/farm-digital-twin/blob/main/media/farm_twin.mp4)** · [Code and Docker setup: farm-digital-twin](https://github.com/abdul-mannan-khan/farm-digital-twin)
+
 ## Selected repositories
 
 | Repository | What it is |
 |---|---|
+| [farm-digital-twin](https://github.com/abdul-mannan-khan/farm-digital-twin) | Farm digital twin in NVIDIA Isaac Sim: procedural crops, UR5e weeding rover, X500 survey drone with synthetic data, Docker container |
 | [warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl) | Warehouse picking simulator: SimPy discrete-event model, Gymnasium environment, PPO dispatch policy, Optuna calibration and an NVIDIA Isaac Sim replay |
 | [rl-tuned-mpc-drones](https://github.com/abdul-mannan-khan/rl-tuned-mpc-drones) | Reinforcement-learning-enhanced model predictive control for multi-drone systems |
 | [wind-aware-delivery](https://github.com/abdul-mannan-khan/wind-aware-delivery) | Wind-aware route, altitude and speed planning for quadrotor parcel delivery in cities, with PX4 hardware-in-the-loop |
