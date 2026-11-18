@@ -29,10 +29,17 @@ A simulated warehouse shift with no people in it: mobile robots that pick parcel
 
 A farm field built from scratch in NVIDIA Isaac Sim: about 30,000 procedurally modelled lettuce and maize plants on shaped soil under a real farm HDRI sky. A UR5e on a Clearpath Ridgeback pulls weeds into its bin, a Holybro X500 drone flies a survey and streams synthetic training data (RGB, depth, semantic segmentation, weed boxes), and a Clearpath Jackal scouts the maize. Runs in a Docker container (`docker run --gpus all farm-twin render`). **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/farm-digital-twin/blob/main/media/farm_twin.mp4)** · [Code and Docker setup: farm-digital-twin](https://github.com/abdul-mannan-khan/farm-digital-twin)
 
+## Featured: drone and ground robot water sampling in a catchment digital twin
+
+[![A survey drone and a ground robot sampling water across the North Wyke catchments in NVIDIA Isaac Sim](https://github.com/abdul-mannan-khan/catchment-digital-twin/raw/main/media/catchment_twin.gif)](https://github.com/abdul-mannan-khan/catchment-digital-twin/blob/main/media/catchment_twin.mp4)
+
+A digital twin of the North Wyke catchments in Devon, built from the Environment Agency's open 1 m LiDAR: the real terrain, every tree, hedge and building, and the streams, field drains and wet ground found by flow analysis. A mission planner splits 13 water-sampling sites between a ground robot (UR5e arm with a sampling wand) and a survey drone with a winch sampler; when the drone's bottles are full it hands them to the robot mid-route instead of flying home. Together they sample all 13 sites in 56 minutes; the robot alone reaches 10 in 81 minutes and the drone alone 7. Replayed and rendered in NVIDIA Isaac Sim. **[Watch the full 60-second video](https://github.com/abdul-mannan-khan/catchment-digital-twin/blob/main/media/catchment_twin.mp4)** · [Code: catchment-digital-twin](https://github.com/abdul-mannan-khan/catchment-digital-twin)
+
 ## Selected repositories
 
 | Repository | What it is |
 |---|---|
+| [catchment-digital-twin](https://github.com/abdul-mannan-khan/catchment-digital-twin) | Catchment digital twin from real LiDAR: hydrology analysis, drone + ground robot water-sampling planner with mid-route hand-overs, NVIDIA Isaac Sim replay |
 | [farm-digital-twin](https://github.com/abdul-mannan-khan/farm-digital-twin) | Farm digital twin in NVIDIA Isaac Sim: procedural crops, UR5e weeding rover, X500 survey drone with synthetic data, Docker container |
 | [warehouse-sim-rl](https://github.com/abdul-mannan-khan/warehouse-sim-rl) | Warehouse picking simulator: SimPy discrete-event model, Gymnasium environment, PPO dispatch policy, Optuna calibration and an NVIDIA Isaac Sim replay |
 | [rl-tuned-mpc-drones](https://github.com/abdul-mannan-khan/rl-tuned-mpc-drones) | Reinforcement-learning-enhanced model predictive control for multi-drone systems |
